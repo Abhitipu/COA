@@ -1,0 +1,45 @@
+$date
+	Fri Aug 20 21:30:04 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module Multiplexer_tb $end
+$var wire 1 ! z $end
+$var reg 1 " u $end
+$var reg 1 # v $end
+$var reg 1 $ x $end
+$scope module mux $end
+$var wire 1 % s0 $end
+$var wire 1 & s1 $end
+$var wire 1 " u $end
+$var wire 1 # v $end
+$var wire 1 $ x $end
+$var wire 1 ' x_bar $end
+$var wire 1 ! z $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0'
+0&
+0%
+1$
+0#
+0"
+0!
+$end
+#20
+1!
+1%
+1"
+#60
+0!
+1'
+0%
+0$
+#80
