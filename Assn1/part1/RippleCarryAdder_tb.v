@@ -4,6 +4,12 @@
 
 
 module RippleCarryAdder_tb;
+reg[3:0] a4,b4;
+reg cin4;
+wire cout4;
+wire [3:0] sum4;
+rca4 rca_4(a4,b4,cin4,sum4,cout4);
+
 reg[7:0] a8,b8;
 reg cin8;
 wire cout8;
@@ -39,6 +45,7 @@ initial begin
     $dumpvars(0,RippleCarryAdder_tb);
 
 
+    a4=4'b1010;b4=4'b0011;cin4=0;
     a8=8'b10001010;b8=8'b00100011;cin8=1;
     as8=8'b10001010;bs8=8'b00100011;cins8=1;
     a16 = 16'b0001111011111010; b16 = 16'b0011111111111100;cin16=1;
@@ -48,6 +55,7 @@ initial begin
     cin64 = 0;
     #20;
 
+    a4=4'b1011;b4=4'b0111;cin4=0;
     a8<=8'b01000010;b8<=a8;cin8=0;
     as8<=8'b01000010;bs8<=a8;cins8=0;
     a16 = 16'b0101100001011010 ; b16 = 16'b1110100001110010;cin16=0;
@@ -57,6 +65,7 @@ initial begin
     cin64 = 1;
     #20;
 
+    a4=4'b1110;b4=4'b1001;cin4=1;
     a8<=8'b10011111;b8<=8'b11000010;cin8=1;
     as8<=8'b10011111;bs8<=8'b11000010;cins8=1;
     a16 = 16'b0011000011001101; b16 = 16'b1001111111110011;cin16=0;
