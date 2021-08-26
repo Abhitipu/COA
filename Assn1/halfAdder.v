@@ -4,8 +4,8 @@
 module halfAdder (a, b, sum, cout);
 input a,b;              // inputs
 output sum,cout;        // outputs
-    and U1(cout,a,b);    
-    xor U2(sum,a,b);
+ assign cout = a&b;   
+ assign sum = a^b;
 endmodule
 
 `endif // _HA_v_
@@ -14,4 +14,4 @@ endmodule
 //      0   0   0   0
 //      0   1   1   0
 //      1   0   1   0
-//      1   1   1   1
+//      1   1   0   1

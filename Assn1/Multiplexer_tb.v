@@ -13,7 +13,7 @@ initial begin
 
     x=1;u=0;v=0;#20;
     x=1;u=1;v=0;#20;
-    x=1;#20;
+    x=1;u=0;v=1;#20;
     x=0;#20;
     $display("end of test.");
 end
