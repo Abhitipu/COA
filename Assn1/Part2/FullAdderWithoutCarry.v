@@ -7,7 +7,7 @@ module FA_Struct(a, b, cin, sum);
     input  a, b, cin;
     output sum;
 
-    assign sum = a&b | (a^b)&cin;
+    assign sum = a^b^cin;;
 
 endmodule
 

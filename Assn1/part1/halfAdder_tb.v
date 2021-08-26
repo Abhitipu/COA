@@ -7,7 +7,7 @@ module halfAdder_tb;
 reg A, B;
 wire S, C;
 
-halfAdder HA (A, B, S, B);
+halfAdder HA (A, B, S, C);
 
 initial begin
     $dumpfile("halfAdder_tb.vcd");
