@@ -5,7 +5,7 @@
 `include "FullAdderWithoutCarry.v"
 `include "CarryGenerator.v"
 
-module CLA(A, B, C0, Carry, S);
+module CLA4(A, B, C0, Carry, S);
         input[3:0] A, B;
         input C0;
         output[3:0] S, Carry;
