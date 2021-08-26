@@ -13,4 +13,4 @@ module multiplexer_struct(x , u , v , z);
 	and U3(s1 , x_bar, v);
 	or U4(z , s0 , s1);
 endmodule
-`endif _MUX_v_
+`endif // _MUX_v_
