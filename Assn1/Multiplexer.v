@@ -1,5 +1,7 @@
 `timescale 1ns/1ns // <time unit> / <time precision>
 
+`ifndef _MUX_v_
+`define _MUX_v_
 module multiplexer_struct(x , u , v , z);
 	input x,u,v;
 	output z;
@@ -11,3 +13,4 @@ module multiplexer_struct(x , u , v , z);
 	and U3(s1 , x_bar, v);
 	or U4(z , s0 , s1);
 endmodule
+`endif _MUX_v_

@@ -2,6 +2,9 @@
 `include "FullAdder.v"
 `include "Multiplexer.v"
 
+`ifndef _RCA_v_
+`define _RCA_v_
+
 module rca8(A, B, cin1, S, cout1);
     input[7:0] A, B;
     input cin1;
@@ -78,3 +81,4 @@ module rcas8 (A, B, mode, S, cout1);
     rca8 R1(A, BMUX, mode, S, cout1);
 
 endmodule
+`endif // _RCA_v_
