@@ -1,0 +1,364 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: CLA16CLA.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "CLA16CLA.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "CLA16CLA"
+Output Format                      : NGC
+Target Device                      : xc7a100t-1-csg324
+
+---- Source Options
+Top Module Name                    : CLA16CLA
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : Yes
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder\CarryLookAheadAdder16BitCLA.v" into library work
+Parsing verilog file "CarryLookAheadAdderWithPG.v" included at line 5.
+Parsing verilog file "FullAdderWithoutCarry.v" included at line 5.
+Parsing module <FA_Struct>.
+Parsing verilog file "PGGenerator.v" included at line 6.
+Parsing module <PG_Generator>.
+Parsing module <Carry_Forward_Generator16Block>.
+Parsing module <CLA4Block>.
+Parsing module <CLA16CLA>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <CLA16CLA>.
+
+Elaborating module <CLA4Block>.
+
+Elaborating module <PG_Generator>.
+
+Elaborating module <Carry_Forward_Generator16Block>.
+
+Elaborating module <FA_Struct>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <CLA16CLA>.
+    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder\CarryLookAheadAdder16BitCLA.v".
+INFO:Xst:3210 - "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder\CarryLookAheadAdder16BitCLA.v" line 20: Output port <Cout> of the instance <cla4blk0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder\CarryLookAheadAdder16BitCLA.v" line 21: Output port <Cout> of the instance <cla4blk1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder\CarryLookAheadAdder16BitCLA.v" line 22: Output port <Cout> of the instance <cla4blk2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder\CarryLookAheadAdder16BitCLA.v" line 23: Output port <Cout> of the instance <cla4blk3> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <CLA16CLA> synthesized.
+
+Synthesizing Unit <CLA4Block>.
+    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/CarryLookAheadAdderWithPG.v".
+    Summary:
+	no macro.
+Unit <CLA4Block> synthesized.
+
+Synthesizing Unit <PG_Generator>.
+    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/PGGenerator.v".
+    Summary:
+Unit <PG_Generator> synthesized.
+
+Synthesizing Unit <Carry_Forward_Generator16Block>.
+    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/CarryLookAheadAdderWithPG.v".
+    Summary:
+	no macro.
+Unit <Carry_Forward_Generator16Block> synthesized.
+
+Synthesizing Unit <FA_Struct>.
+    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/FullAdderWithoutCarry.v".
+    Summary:
+Unit <FA_Struct> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Xors                                                 : 36
+ 1-bit xor2                                            : 32
+ 4-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Xors                                                 : 36
+ 1-bit xor2                                            : 32
+ 4-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <CLA16CLA> ...
+
+Optimizing unit <CLA4Block> ...
+
+Optimizing unit <PG_Generator> ...
+
+Optimizing unit <Carry_Forward_Generator16Block> ...
+
+Optimizing unit <FA_Struct> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block CLA16CLA, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : CLA16CLA.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 76
+#      LUT2                        : 36
+#      LUT3                        : 22
+#      LUT4                        : 4
+#      LUT5                        : 10
+#      LUT6                        : 4
+# IO Buffers                       : 58
+#      IBUF                        : 33
+#      OBUF                        : 25
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                   76  out of  63400     0%  
+    Number used as Logic:                76  out of  63400     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     76
+   Number with an unused Flip Flop:      76  out of     76   100%  
+   Number with an unused LUT:             0  out of     76     0%  
+   Number of fully used LUT-FF pairs:     0  out of     76     0%  
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                          58
+ Number of bonded IOBs:                  58  out of    210    27%  
+
+Specific Feature Utilization:
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 5.724ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 849 / 25
+-------------------------------------------------------------------------
+Delay:               5.724ns (Levels of Logic = 16)
+  Source:            A<1> (PAD)
+  Destination:       S<15> (PAD)
+
+  Data Path: A<1> to S<15>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   0.001   0.550  A_1_IBUF (A_1_IBUF)
+     begin scope: 'cla4blk0:A<1>'
+     begin scope: 'cla4blk0/pggen:A<1>'
+     LUT2:I0->O            4   0.124   0.556  Mxor_P_1_xo<0>1 (P<1>)
+     end scope: 'cla4blk0/pggen:P<1>'
+     LUT2:I0->O            1   0.124   0.716  Gb<3>_SW0 (N01)
+     LUT6:I3->O            3   0.124   0.435  Gb<3> (Gb)
+     end scope: 'cla4blk0:Gb'
+     begin scope: 'cfg:G<0>'
+     LUT3:I2->O            4   0.124   0.556  Cout<0>1 (Cout<0>)
+     LUT5:I3->O            4   0.124   0.556  Cout<2><2>1 (Cout<2>)
+     end scope: 'cfg:Cout<2>'
+     begin scope: 'cla4blk3:C0'
+     begin scope: 'cla4blk3/cgen:C0'
+     LUT3:I1->O            2   0.124   0.542  Cout<0>1 (Cout<0>)
+     LUT5:I3->O            1   0.124   0.421  Cout<2><2>1 (Cout<2>)
+     end scope: 'cla4blk3/cgen:Cout<2>'
+     begin scope: 'cla4blk3/fa3:cin'
+     LUT3:I2->O            1   0.124   0.399  sum1 (sum)
+     end scope: 'cla4blk3/fa3:sum'
+     end scope: 'cla4blk3:S<3>'
+     OBUF:I->O                 0.000          S_15_OBUF (S<15>)
+    ----------------------------------------
+    Total                      5.724ns (0.993ns logic, 4.731ns route)
+                                       (17.3% logic, 82.7% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.89 secs
+ 
+--> 
+
+Total memory usage is 4616416 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+
