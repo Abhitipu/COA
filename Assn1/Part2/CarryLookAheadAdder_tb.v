@@ -3,11 +3,12 @@
 
 module CarryLookAheadAdder_tb;
     
-    reg [3:0] A, B;
+    reg[3:0] A, B;
     reg C0;
-    wire[3:0] Sum, Carry;
+    wire Carry;
+    wire[3:0] Sum; 
 
-    CLA cla(A, B, C0, Carry, Sum);
+    CLA4 cla4(A, B, C0, Carry, Sum);
 
     initial begin
         $dumpfile("CarryLookAheadAdder_tb.vcd");

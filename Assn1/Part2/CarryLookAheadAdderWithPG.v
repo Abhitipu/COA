@@ -32,9 +32,9 @@ module CLA4Block(A, B, C0, Cout, S, Pb, Gb);
 
 		PG_Generator pggen(A, B, P, G);
 		assign Cout = Carry[3];
-	Carry_Forward_Generator16Block cgen(P, G, C0, Carry);	
+		Carry_Forward_Generator16Block cgen(P, G, C0, Carry);	
         // 4 instantiated 1-bit full adders
-	// Doubt: Are these carried out concurrently?
+		// Doubt: Are these carried out concurrently?
         FA_Struct fa0 (A[0], B[0], C0, S[0]);
         FA_Struct fa1 (A[1], B[1], Carry[0], S[1]);
         FA_Struct fa2 (A[2], B[2], Carry[1], S[2]);

@@ -5,10 +5,13 @@
 `include "FullAdderWithoutCarry.v"
 `include "CarryGenerator.v"
 
-module CLA4(A, B, C0, Carry, S);
+module CLA4(A, B, C0, Cout, S);
         input[3:0] A, B;
         input C0;
-        output[3:0] S, Carry;
+        output Cout;
+        output[3:0] S;
+
+        wire[3:0] Carry;
 
 	Carry_Forward_Generator cgen(A, B, C0, Carry);	
         // 4 instantiated 1-bit full adders
@@ -18,6 +21,7 @@ module CLA4(A, B, C0, Carry, S);
         FA_Struct fa2 (A[2], B[2], Carry[1], S[2]);
         FA_Struct fa3 (A[3], B[3], Carry[2], S[3]);
 
+        assign Cout = Carry[3];
 endmodule
 
 `endif
