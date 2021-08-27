@@ -15,8 +15,8 @@ module CLA16CLA(A, B, C0, Carry, S, P, G);
 
         assign Carry = cout[3];
         // 4 instantiated 1-bit full adders
-	// Doubt: Are these carried out concurrently?
-    // CLA4Block(A, B, C0, Carry, S, Pb, Gb);
+        // Doubt: Are these carried out concurrently?
+        // CLA4Block(A, B, C0, Carry, S, Pb, Gb);
         CLA4Block cla4blk0 (A[3:0], B[3:0], C0, ,S[3:0], P[0], G[0]);
         CLA4Block cla4blk1 (A[7:4], B[7:4], cout[0], ,S[7:4], P[1], G[1]);
         CLA4Block cla4blk2 (A[11:8], B[11:8], cout[1], ,S[11:8], P[2], G[2]);
