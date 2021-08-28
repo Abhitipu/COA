@@ -1,2 +1,7 @@
+# prev yr folders
 Revision
 Assn0
+
+# output and vcd files
+*.out
+*.vcd

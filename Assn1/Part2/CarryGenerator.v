@@ -5,12 +5,12 @@
 
 `include "PGGenerator.v"
 
-module Carry_Forward_Generator(A, B, C0, Cout);
+module Carry_Forward_Generator(A, B, C0, Cout, P);
 	input[3:0] A, B;
 	input C0;
-	output[3:0] Cout;
+	output[3:0] Cout, P;
 	
-	wire[3:0] P, G;
+	wire[3:0] G;
 	
 	PG_Generator pggen(A, B, P, G);
 	// C1 = G0 + P0C0

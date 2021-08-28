@@ -5,9 +5,9 @@ module CarryGenerator_tb;
     
     reg [3:0] A, B;
     reg  C;
-    wire[3:0] Cout;
+    wire[3:0] Cout, P;
 
-    Carry_Forward_Generator cg(A, B, C, Cout);
+    Carry_Forward_Generator cg(A, B, C, Cout, P);
 
     initial begin
         $dumpfile("CarryGenerator_tb.vcd");
