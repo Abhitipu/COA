@@ -30,10 +30,10 @@ module CLA4Block(A, B, C0, Cout, S, Pb, Gb);
 
         wire [3:0] Carry, P, G, Cin;
 
-		PG_Generator pggen(A, B, P, G);
-		assign Cout = Carry[3];
-		Carry_Forward_Generator16Block cgen(P, G, C0, Carry);	
-		assign Cin = {Carry[2:0], C0};
+	PG_Generator pggen(A, B, P, G);
+	assign Cout = Carry[3];
+	Carry_Forward_Generator16Block cgen(P, G, C0, Carry);	
+	assign Cin = {Carry[2:0], C0};
         FA_Struct fa0 (P, Cin, S);
 		
         // P=P3P2P1P0
