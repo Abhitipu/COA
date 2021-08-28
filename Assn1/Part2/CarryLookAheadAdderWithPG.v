@@ -35,7 +35,7 @@ module CLA4Block(A, B, C0, Cout, S, Pb, Gb);
 		Carry_Forward_Generator16Block cgen(P, G, C0, Carry);	
 		assign Cin = {Carry[2:0], C0};
         SE getsum(P, Cin, S);
-
+		
         // P=P3P2P1P0
         // G=G3 +P3G2 +P3P2G1 +P3P2P1G0
         assign Pb = P[0]&P[1]&P[2]&P[3];
