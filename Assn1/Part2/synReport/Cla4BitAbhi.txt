@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: CLA4.prj
 
@@ -105,9 +105,9 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\COAver1\COA\Assn1\Part2\CarryLookAheadAdder.v" into library work
-Parsing verilog file "FullAdderWithoutCarry.v" included at line 5.
-Parsing module <FA_Struct>.
+Analyzing Verilog file "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1\CarryLookAheadAdder.v" into library work
+Parsing verilog file "SumEvaluator.v" included at line 5.
+Parsing module <SE>.
 Parsing verilog file "CarryGenerator.v" included at line 6.
 Parsing verilog file "PGGenerator.v" included at line 6.
 Parsing module <PG_Generator>.
@@ -124,41 +124,40 @@ Elaborating module <Carry_Forward_Generator>.
 
 Elaborating module <PG_Generator>.
 
-Elaborating module <FA_Struct>.
+Elaborating module <SE>.
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <CLA4>.
-    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\COAver1\COA\Assn1\Part2\CarryLookAheadAdder.v".
+    Related source file is "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1\CarryLookAheadAdder.v".
     Summary:
 	no macro.
 Unit <CLA4> synthesized.
 
 Synthesizing Unit <Carry_Forward_Generator>.
-    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/CarryGenerator.v".
+    Related source file is "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1/CarryGenerator.v".
     Summary:
 	no macro.
 Unit <Carry_Forward_Generator> synthesized.
 
 Synthesizing Unit <PG_Generator>.
-    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/PGGenerator.v".
+    Related source file is "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1/PGGenerator.v".
     Summary:
 Unit <PG_Generator> synthesized.
 
-Synthesizing Unit <FA_Struct>.
-    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/FullAdderWithoutCarry.v".
+Synthesizing Unit <SE>.
+    Related source file is "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1/SumEvaluator.v".
     Summary:
-Unit <FA_Struct> synthesized.
+Unit <SE> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Xors                                                 : 9
- 1-bit xor2                                            : 8
- 4-bit xor2                                            : 1
+# Xors                                                 : 2
+ 4-bit xor2                                            : 2
 
 =========================================================================
 
@@ -171,9 +170,8 @@ Macro Statistics
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Xors                                                 : 9
- 1-bit xor2                                            : 8
- 4-bit xor2                                            : 1
+# Xors                                                 : 2
+ 4-bit xor2                                            : 2
 
 =========================================================================
 
@@ -187,7 +185,7 @@ Optimizing unit <Carry_Forward_Generator> ...
 
 Optimizing unit <PG_Generator> ...
 
-Optimizing unit <FA_Struct> ...
+Optimizing unit <SE> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -221,12 +219,12 @@ Top Level Output File Name         : CLA4.ngc
 Primitive and Black Box Usage:
 ------------------------------
 # BELS                             : 16
-#      LUT2                        : 8
-#      LUT3                        : 6
+#      LUT2                        : 12
+#      LUT3                        : 2
 #      LUT5                        : 2
-# IO Buffers                       : 17
+# IO Buffers                       : 14
 #      IBUF                        : 9
-#      OBUF                        : 8
+#      OBUF                        : 5
 
 Device utilization summary:
 ---------------------------
@@ -246,8 +244,8 @@ Slice Logic Distribution:
    Number of unique control sets:         0
 
 IO Utilization: 
- Number of IOs:                          17
- Number of bonded IOBs:                  17  out of    210     8%  
+ Number of IOs:                          14
+ Number of bonded IOBs:                  14  out of    210     6%  
 
 Specific Feature Utilization:
 
@@ -282,7 +280,7 @@ Speed Grade: -1
    Minimum period: No path found
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: No path found
-   Maximum combinational path delay: 3.268ns
+   Maximum combinational path delay: 3.252ns
 
 Timing Details:
 ---------------
@@ -290,29 +288,31 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 80 / 8
+  Total number of paths / destination ports: 53 / 5
 -------------------------------------------------------------------------
-Delay:               3.268ns (Levels of Logic = 8)
+Delay:               3.252ns (Levels of Logic = 9)
   Source:            A<0> (PAD)
-  Destination:       Carry<3> (PAD)
+  Destination:       S<3> (PAD)
 
-  Data Path: A<0> to Carry<3>
+  Data Path: A<0> to S<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             3   0.001   0.550  A_0_IBUF (A_0_IBUF)
+     IBUF:I->O             2   0.001   0.542  A_0_IBUF (A_0_IBUF)
      begin scope: 'cgen:A<0>'
      begin scope: 'cgen/pggen:A<0>'
-     LUT2:I0->O            2   0.124   0.722  Mxor_P_0_xo<0>1 (P<0>)
+     LUT2:I0->O            3   0.124   0.730  Mxor_P_0_xo<0>1 (P<0>)
      end scope: 'cgen/pggen:P<0>'
-     LUT3:I0->O            3   0.124   0.550  Cout<0>1 (Cout<0>)
-     LUT5:I3->O            3   0.124   0.550  Cout<2><2>1 (Cout<2>)
-     LUT3:I1->O            1   0.124   0.399  Cout<3><3>1 (Cout<3>)
-     end scope: 'cgen:Cout<3>'
-     OBUF:I->O                 0.000          Carry_3_OBUF (Carry<3>)
+     LUT3:I0->O            2   0.124   0.542  Cout<0>1 (Cout<0>)
+     LUT5:I3->O            2   0.124   0.542  Cout<2><2>1 (Cout<2>)
+     end scope: 'cgen:Cout<2>'
+     begin scope: 'getsum:cin<3>'
+     LUT2:I0->O            1   0.124   0.399  Mxor_sum_3_xo<0>1 (sum<3>)
+     end scope: 'getsum:sum<3>'
+     OBUF:I->O                 0.000          S_3_OBUF (S<3>)
     ----------------------------------------
-    Total                      3.268ns (0.497ns logic, 2.771ns route)
-                                       (15.2% logic, 84.8% route)
+    Total                      3.252ns (0.497ns logic, 2.755ns route)
+                                       (15.3% logic, 84.7% route)
 
 =========================================================================
 
@@ -322,14 +322,13 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.80 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.35 secs
  
 --> 
 
-Total memory usage is 4616420 kilobytes
+Total memory usage is 4616876 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
-
