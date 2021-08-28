@@ -1,8 +1,8 @@
 `timescale 1ns/1ns
-`ifndef _FA_v_
-`define _FA_v_
+`ifndef _SE_v_
+`define _SE_v_
 
-module FA_Struct(p, cin, sum);
+module SE(p, cin, sum);
 
     input[3:0]  p, cin;
     output[3:0] sum;
@@ -11,4 +11,4 @@ module FA_Struct(p, cin, sum);
 
 endmodule
 
-`endif  // _FA_v_
+`endif  // _SE_v_
