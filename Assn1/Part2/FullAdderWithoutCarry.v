@@ -2,12 +2,12 @@
 `ifndef _FA_v_
 `define _FA_v_
 
-module FA_Struct(a, b, cin, sum);
+module FA_Struct(p, cin, sum);
 
-    input  a, b, cin;
-    output sum;
+    input[3:0]  p, cin;
+    output[3:0] sum;
 
-    assign sum = a^b^cin;;
+    assign sum = p^cin;
 
 endmodule
 
