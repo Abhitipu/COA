@@ -2,7 +2,7 @@
 `ifndef _CLA_v_
 `define _CLA_v_
 
-`include "FullAdderWithoutCarry.v"
+`include "SumEvaluator.v"
 `include "CarryGenerator.v"
 
 module CLA4(A, B, C0, Cout, S);
@@ -18,7 +18,7 @@ module CLA4(A, B, C0, Cout, S);
 
         wire[3:0] Cin;
         assign Cin = {Carry[2:0], C0};
-        FA_Struct fa0 (P, Cin, S);
+        SE getsum(P, Cin, S);
         assign Cout = Carry[3];
 endmodule
 
