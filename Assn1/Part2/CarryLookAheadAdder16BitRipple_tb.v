@@ -1,3 +1,12 @@
+/*
+Assignment 1
+Problem no: 2b
+Semester: 5th
+Group: 28
+Members: 
+Aryan Singh (19CS30007)
+Abhinandan De (19CS10069)
+*/
 `timescale 1ns/1ns
 `include "CarryLookAheadAdder16BitRipple.v"
 

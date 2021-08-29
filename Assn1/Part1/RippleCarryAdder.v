@@ -1,10 +1,19 @@
+/*
+Assignment 1
+Problem no: 1c/1d
+Semester: 5th
+Group: 28
+Members: 
+Aryan Singh (19CS30007)
+Abhinandan De (19CS10069)
+*/
+
 `timescale 1ns/1ns
 `include "FullAdder.v"
 `include "Multiplexer.v"
 
 `ifndef _RCA_v_
 `define _RCA_v_
-
 
 module rca4(A, B, cin1, S, cout1);
     input[3:0] A, B;
@@ -27,7 +36,7 @@ module rca8(A, B, cin1, S, cout1);
     output cout1;
 
     wire c1, c2, c3, c4, c5, c6, c7;
-    // 4 instantiated 1-bit full adders
+    // 8 instantiated 1-bit full adders
     FA_Struct fa0 (A[0], B[0], cin1, c1, S[0]);
     FA_Struct fa1 (A[1], B[1], c1, c2, S[1]);
     FA_Struct fa2 (A[2], B[2], c2, c3, S[2]);
@@ -38,6 +47,7 @@ module rca8(A, B, cin1, S, cout1);
     FA_Struct fa7 (A[7], B[7], c7, cout1,S[7]);
 endmodule
 
+// Recursively use 8 bit adders
 module rca16 (A, B, cin1, S, cout1);
     input [15:0] A, B;
     input cin1;
@@ -50,6 +60,7 @@ module rca16 (A, B, cin1, S, cout1);
 
 endmodule
 
+// Recursively use 16 bit adders
 module rca32 (A, B, cin1, S, cout1);
     input [31:0] A, B;
     input cin1;
@@ -62,6 +73,7 @@ module rca32 (A, B, cin1, S, cout1);
 
 endmodule
 
+// Recursively use 32 bit adders
 module rca64 (A, B, cin1, S, cout1);
     input [63:0] A, B;
     input cin1;
@@ -74,7 +86,6 @@ module rca64 (A, B, cin1, S, cout1);
 
 endmodule
 
-
 // ripple carry adder and subtractor, mode 1 for A-B, 0 for A+B
 // We convert B to its 2's complement using negation and adding 1 through carry in
 // ignore the cout pin
@@ -85,7 +96,7 @@ module rcas8 (A, B, mode, S, cout1);
     output cout1;
 
     wire[7:0] BMUX;
-    multiplexer_struct m0(mode, ~B[0], B[0], BMUX[0]);
+    multiplexer_struct m0(mode, ~B[0], B[0], BMUX[0]);  // Use multiplezer for generating two's complement
     multiplexer_struct m1(mode, ~B[1], B[1], BMUX[1]);
     multiplexer_struct m2(mode, ~B[2], B[2], BMUX[2]);
     multiplexer_struct m3(mode, ~B[3], B[3], BMUX[3]);
