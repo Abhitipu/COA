@@ -4,8 +4,8 @@
 module halfAdder (a, b, sum, cout);
 input a,b;              // inputs
 output sum,cout;        // outputs
- assign cout = a&b;   
- assign sum = a^b;
+    assign cout = a&b;   
+    assign sum = a^b;
 endmodule
 
 `endif // _HA_v_

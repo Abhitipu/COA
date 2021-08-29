@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: CLA4Block.prj
 
@@ -105,11 +105,12 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\COAver1\COA\Assn1\Part2\CarryLookAheadAdderWithPG.v" into library work
-Parsing verilog file "FullAdderWithoutCarry.v" included at line 5.
-Parsing module <FA_Struct>.
+Analyzing Verilog file "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1\CarryLookAheadAdderWithPG.v" into library work
+Parsing verilog file "SumEvaluator.v" included at line 5.
+Parsing module <SE>.
 Parsing verilog file "PGGenerator.v" included at line 6.
 Parsing module <PG_Generator>.
+Parsing verilog file "CarryForwardGeneratorBlock.v" included at line 7.
 Parsing module <Carry_Forward_Generator16Block>.
 Parsing module <CLA4Block>.
 
@@ -123,41 +124,40 @@ Elaborating module <PG_Generator>.
 
 Elaborating module <Carry_Forward_Generator16Block>.
 
-Elaborating module <FA_Struct>.
+Elaborating module <SE>.
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <CLA4Block>.
-    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\COAver1\COA\Assn1\Part2\CarryLookAheadAdderWithPG.v".
+    Related source file is "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1\CarryLookAheadAdderWithPG.v".
     Summary:
 	no macro.
 Unit <CLA4Block> synthesized.
 
 Synthesizing Unit <PG_Generator>.
-    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/PGGenerator.v".
+    Related source file is "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1/PGGenerator.v".
     Summary:
 Unit <PG_Generator> synthesized.
 
 Synthesizing Unit <Carry_Forward_Generator16Block>.
-    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\COAver1\COA\Assn1\Part2\CarryLookAheadAdderWithPG.v".
+    Related source file is "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1/CarryForwardGeneratorBlock.v".
     Summary:
 	no macro.
 Unit <Carry_Forward_Generator16Block> synthesized.
 
-Synthesizing Unit <FA_Struct>.
-    Related source file is "C:\Users\Student\Desktop\19CS30007_COA_LAB\Assign1\RCA\CarryLookAheadAdder/FullAdderWithoutCarry.v".
+Synthesizing Unit <SE>.
+    Related source file is "C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Assignments\Assn1/SumEvaluator.v".
     Summary:
-Unit <FA_Struct> synthesized.
+Unit <SE> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Xors                                                 : 9
- 1-bit xor2                                            : 8
- 4-bit xor2                                            : 1
+# Xors                                                 : 2
+ 4-bit xor2                                            : 2
 
 =========================================================================
 
@@ -170,9 +170,8 @@ Macro Statistics
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Xors                                                 : 9
- 1-bit xor2                                            : 8
- 4-bit xor2                                            : 1
+# Xors                                                 : 2
+ 4-bit xor2                                            : 2
 
 =========================================================================
 
@@ -186,7 +185,7 @@ Optimizing unit <PG_Generator> ...
 
 Optimizing unit <Carry_Forward_Generator16Block> ...
 
-Optimizing unit <FA_Struct> ...
+Optimizing unit <SE> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -220,8 +219,8 @@ Top Level Output File Name         : CLA4Block.ngc
 Primitive and Black Box Usage:
 ------------------------------
 # BELS                             : 19
-#      LUT2                        : 9
-#      LUT3                        : 6
+#      LUT2                        : 13
+#      LUT3                        : 2
 #      LUT4                        : 1
 #      LUT5                        : 2
 #      LUT6                        : 1
@@ -283,7 +282,7 @@ Speed Grade: -1
    Minimum period: No path found
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: No path found
-   Maximum combinational path delay: 3.260ns
+   Maximum combinational path delay: 3.258ns
 
 Timing Details:
 ---------------
@@ -293,27 +292,29 @@ All values displayed in nanoseconds (ns)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 75 / 7
 -------------------------------------------------------------------------
-Delay:               3.260ns (Levels of Logic = 8)
+Delay:               3.258ns (Levels of Logic = 9)
   Source:            A<0> (PAD)
-  Destination:       Cout (PAD)
+  Destination:       S<3> (PAD)
 
-  Data Path: A<0> to Cout
+  Data Path: A<0> to S<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             3   0.001   0.550  A_0_IBUF (A_0_IBUF)
+     IBUF:I->O             2   0.001   0.542  A_0_IBUF (A_0_IBUF)
      begin scope: 'pggen:A<0>'
-     LUT2:I0->O            3   0.124   0.730  Mxor_P_0_xo<0>1 (P<0>)
+     LUT2:I0->O            4   0.124   0.736  Mxor_P_0_xo<0>1 (P<0>)
      end scope: 'pggen:P<0>'
      begin scope: 'cgen:P<0>'
      LUT3:I0->O            2   0.124   0.542  Cout<0>1 (Cout<0>)
      LUT5:I3->O            2   0.124   0.542  Cout<2><2>1 (Cout<2>)
-     LUT3:I1->O            1   0.124   0.399  Cout<3><3>1 (Cout<3>)
-     end scope: 'cgen:Cout<3>'
-     OBUF:I->O                 0.000          Cout_OBUF (Cout)
+     end scope: 'cgen:Cout<2>'
+     begin scope: 'getsum:cin<3>'
+     LUT2:I0->O            1   0.124   0.399  Mxor_sum_3_xo<0>1 (sum<3>)
+     end scope: 'getsum:sum<3>'
+     OBUF:I->O                 0.000          S_3_OBUF (S<3>)
     ----------------------------------------
-    Total                      3.260ns (0.497ns logic, 2.763ns route)
-                                       (15.2% logic, 84.8% route)
+    Total                      3.258ns (0.497ns logic, 2.761ns route)
+                                       (15.3% logic, 84.7% route)
 
 =========================================================================
 
@@ -323,12 +324,12 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.77 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.71 secs
  
 --> 
 
-Total memory usage is 4616392 kilobytes
+Total memory usage is 4616900 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

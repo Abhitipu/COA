@@ -1,12 +1,13 @@
 `timescale 1ns/1ns
 `include "CarryLookAheadAdder16BitRipple.v"
 
-module CLA16_tb();
+module CLA16_tb;
     reg[15:0] A, B;
     reg C0;
-    wire[15:0] Sum, Carry;
+    wire[15:0] Sum;
+    wire Cout;
 
-    CLA16Ripple cla16r(A, B, C0, Sum, Carry);
+    CLA16Ripple cla16r(A, B, C0, Sum, Cout);
 
     initial begin
         $dumpfile("CarryLookAheadAdder16BitRipple_tb.vcd");
