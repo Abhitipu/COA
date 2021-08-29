@@ -19,7 +19,7 @@ module CLA16Ripple(A, B, C0, S, Cout);
     output[15:0] S;
     output Cout;
     wire[15:0] Carry;
-
+    // uses 4 cla in ripple carry adder format
     CLA4 cla1(A[3:0], B[3:0], C0, Carry[3], S[3:0]);
     CLA4 cla2(A[7:4], B[7:4], Carry[3], Carry[7], S[7:4]);
     CLA4 cla3(A[11:8], B[11:8], Carry[7], Carry[11], S[11:8]);

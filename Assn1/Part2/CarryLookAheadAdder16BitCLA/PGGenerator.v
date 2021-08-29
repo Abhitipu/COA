@@ -15,7 +15,7 @@ Abhinandan De (19CS10069)
 module PG_Generator(A, B, P, G);
 	output[3:0] P, G;
 	input[3:0] A, B;
-	
+	// Generates P and G using assign staements
 	assign P = A^B;
 	assign G = A&B;
 

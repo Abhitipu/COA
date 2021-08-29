@@ -15,7 +15,7 @@ module SE(p, cin, sum);
 
     input[3:0]  p, cin;
     output[3:0] sum;
-
+    // Evaluates sum using p and cin , since p is already a^b
     assign sum = p^cin;
 
 endmodule

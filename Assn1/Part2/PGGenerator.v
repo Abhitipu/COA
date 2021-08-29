@@ -15,7 +15,7 @@ Abhinandan De (19CS10069)
 module PG_Generator(A, B, P, G);
 	output[3:0] P, G;
 	input[3:0] A, B;
-	
+	// generates P and G using A and B
 	assign P = A^B;
 	assign G = A&B;
 
