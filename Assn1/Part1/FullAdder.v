@@ -1,21 +1,25 @@
+/*
+Assignment 1
+Problem no:1b 
+Semester: 5th
+Group: 28
+Members: 
+Aryan Singh (19CS30007)
+Abhinandan De (19CS10069)
+*/
+
 `timescale 1ns/1ns
 
 `ifndef _FA_v_
 `define _FA_v_
+
 module FA_Struct(a, b, cin, cout, sum);
     input  a, b, cin;      // inputs
     output cout, sum;      // output
+
+    // Combinational logic
     assign sum = a^b^cin;
     assign cout = (a&b) | ((a^b)&cin);
 endmodule
+
 `endif  // _FA_v_
-// Truth Table
-//      a   b   cin sum cout
-//      0   0   0   0   0
-//      0   0   1   1   0
-//      0   1   0   1   0
-//      0   1   1   0   1
-//      1   0   0   1   0
-//      1   0   1   0   1
-//      1   1   0   0   1
-//      1   1   1   1   1
