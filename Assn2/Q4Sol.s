@@ -42,7 +42,7 @@ beginloop:
     div     $s0, $s1                        # Hi = $s0 % $s1
     mfhi    $t0                             # t0 = remainder
     bne     $t0, $zero, elsePart            # if remainder != 0 goto elsePart
-    addi    $s2, $s2, $s1                   # s2 += i if i is a divisor of n
+    add     $s2, $s2, $s1                   # s2 += i if i is a divisor of n
 elsePart:
     addi    $s1, $s1, 1                     # i++
     b       beginloop                       # loop
