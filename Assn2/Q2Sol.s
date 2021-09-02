@@ -40,16 +40,16 @@ main:
     syscall                 # call scanf
     move    $s1, $v0        # move result to s0
 
-    blt     $s0, zero, invalidMesg  # the sanity checks for input
-    blt     $s1, zero, invalidMesg  # the numbers should be greater than or equal to 0
+    blt     $s0, $zero, invalidMesg  # the sanity checks for input
+    blt     $s1, $zero, invalidMesg  # the numbers should be greater than or equal to 0
 
-    bne     $s0, zero, gcdLoop      # initial loop check
+    bne     $s0, $zero, gcdLoop      # initial loop check
     move    $s2, $s1                # if a == 0 result = b
     b       printRes                # go and print the result
 
 gcdLoop:
-    beq     $s1, zero, assignRes    # Continue until b != 0
-    ble     $s0, s1, reduceB        # if a <= b then reduce b
+    beq     $s1, $zero, assignRes    # Continue until b != 0
+    ble     $s0, $s1, reduceB        # if a <= b then reduce b
     sub     $s0, $s0, $s1           # Control comes here if a > b, assign a = a - b
     b       gcdLoop                 # Continue with the loo[]
 
