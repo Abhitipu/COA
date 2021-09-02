@@ -51,7 +51,7 @@ elsePart:
     addi    $s1, $s1, 1                     # i++
     b       beginloop                       # loop
 EndLoop:
-    bne     $s2, $zero, IsComposite         # if factors!=0, excluding 1 and n
+    bne     $s2, $zero, IsComposite         # if factors!=0 till  i <= sqtr n excluding i=1,  jump to isComposite
     li      $v0, 4                          # v0 <- 4(print string)
     la      $a0, message2                   # loads the address of message2 on a0
     syscall

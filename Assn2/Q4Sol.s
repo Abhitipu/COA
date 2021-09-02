@@ -47,7 +47,7 @@ elsePart:
     addi    $s1, $s1, 1                     # i++
     b       beginloop                       # loop
 EndLoop:
-    bne     $s2, $s0, NotPerfect         # if Sumoffactors!=n, including 1 and excluding n
+    bne     $s2, $s0, NotPerfect            # if Sumoffactors!=n, including 1 and excluding n, jump to NotPerfect message
     li      $v0, 4                          # v0 <- 4(print string)
     la      $a0, message2                   # loads the address of message2 on a0
     syscall
