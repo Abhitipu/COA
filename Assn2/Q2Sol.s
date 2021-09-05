@@ -50,8 +50,8 @@ main:
     syscall                                 # call scanf
     move    $s1, $v0                        # move result to s0
 
-    blt     $s0, $zero, invalidMesg         # the sanity checks for input
-    blt     $s1, $zero, invalidMesg         # the numbers should be greater than or equal to 0
+    ble     $s0, $zero, invalidMesg         # the sanity checks for input
+    ble     $s1, $zero, invalidMesg         # the numbers should be greater than 0
 
     bne     $s0, $zero, gcdLoop             # initial loop check
     move    $s2, $s1                        # if a == 0 result = b
