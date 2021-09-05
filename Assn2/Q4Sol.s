@@ -1,3 +1,12 @@
+# 
+# Assignment 2
+# Problem no: 4
+# Semester: 5th
+# Group: 28
+# Members: 
+# Aryan Singh (19CS30007)
+# Abhinandan De (19CS10069)
+# 
 # This program computes and displays whether a given Number n is PERFECT or NOT
 # A perfect number is an number whose sum of proper divisor is equal to that number itself
 # here n is entered by user
@@ -47,7 +56,7 @@ elsePart:
     addi    $s1, $s1, 1                     # i++
     b       beginloop                       # loop
 EndLoop:
-    bne     $s2, $s0, NotPerfect         # if Sumoffactors!=n, including 1 and excluding n
+    bne     $s2, $s0, NotPerfect            # if Sumoffactors!=n, including 1 and excluding n, jump to NotPerfect message
     li      $v0, 4                          # v0 <- 4(print string)
     la      $a0, message2                   # loads the address of message2 on a0
     syscall
