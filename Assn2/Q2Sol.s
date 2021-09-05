@@ -1,3 +1,13 @@
+# 
+# Assignment 2
+# Problem no: 2
+# Semester: 5th
+# Group: 28
+# Members: 
+# Aryan Singh (19CS30007)
+# Abhinandan De (19CS10069)
+# 
+
 # This program computes and outputs the gcd of two positive numbers a and b
 # a and b is taken from the user as input
     .globl  main

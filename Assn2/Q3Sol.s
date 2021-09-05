@@ -1,3 +1,12 @@
+# 
+# Assignment 2
+# Problem no: 3
+# Semester: 5th
+# Group: 28
+# Members: 
+# Aryan Singh (19CS30007)
+# Abhinandan De (19CS10069)
+# 
 # This program computes and displays whether a given Number is PRIME or COMPOSITE
 # where n is entered by user
 
