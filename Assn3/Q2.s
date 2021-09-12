@@ -1,3 +1,13 @@
+# 
+# Assignment 3
+# Problem no: 3
+# Semester: 5th
+# Group: 28
+# Members: 
+# Aryan Singh (19CS30007)
+# Abhinandan De (19CS10069)
+# 
+
 # This program computes kth largest element of an array of length 10 
 # All the elements of the array and k are entered by the user
 #
