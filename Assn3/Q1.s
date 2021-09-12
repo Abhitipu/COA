@@ -19,15 +19,15 @@
 sanitymax:
     .word 32767
 sanitymin:
-    .word -32768
+    .word -32767
 prompt1:
     .asciiz "Enter first number: "
 prompt2:
     .asciiz "Enter Second number: "
 sanityMessage1:
-    .asciiz "The first number is not in proper Range, please enter Numbers in the range -32,768 to +32,767"
+    .asciiz "The first number is not in proper Range, please enter Numbers in the range -32,767 to +32,767"
 sanityMessage2:
-    .asciiz "The Second number is not in proper Range, please enter Numbers in the range -32,768 to +32,767"
+    .asciiz "The Second number is not in proper Range, please enter Numbers in the range -32,767 to +32,767"
 resultMessage:
     .asciiz "Product of the two numbers are: "
 
@@ -66,7 +66,7 @@ main:
     jal		    sanityCheck				            # jump to sanityCheck and save position to $ra
     
     la          $a1, sanityMessage2                 # prepare arguments for sanity check of $s2
-    add         $a0, $zero, $s1                      
+    add         $a0, $zero, $s2                      
     jal		    sanityCheck				            # jump to sanityCheck and save position to $ra
 
 
@@ -117,14 +117,14 @@ sanityCheck:                                        # Takes the number in $a0, i
     lw          $t0, sanitymax
     slt         $t1, $t0, $a0                       # t1 = sanityMax < num ? 1:0
     add		    $a0, $zero, $a1		                # $a0 = $zero + $a1 to call Invalid message
-    bne         $t1, $zero, InvalidMessage          # if num<sanityMin jump to Invalid message
+    bne         $t1, $zero, InvalidMessage          # if sanityMax < num jump to Invalid message
     add         $a0, $zero, $t2                     # restoring a0
     jr		    $ra					                # jump to $ra
     
 InvalidMessage:
     li          $v0, 4
     syscall
-
+    j           endProg
 printAns:
     la          $a0, resultMessage                  # print result message
     li          $v0, 4                              # print string mode
