@@ -28,7 +28,7 @@ prompt3:
 prompt4:
     .asciiz "Enter r: "
 sanityMessage:
-    .asciiz "The given input must be positive!\n"
+    .asciiz "The given input must be positive integers!\n"
     .text
 # main program
 # 
