@@ -74,6 +74,7 @@ main:
     move 	    $s3, $zero		                    # $s3 = $zero, A = 0
     move        $s4, $s2                            # $s4 = $s2, M = multiplicand = var2
     move        $s5, $s1                            # $s5 = $s1, Q = multiplier = var1
+    andi        $s5, $s5, 0xffff                    # $Q's upper 16 bits set to 0
     andi        $t0, $s5, 1                         # t0 = Q0
     sll         $t0, $t0, 1                         # shift left logical
     add         $s6, $zero, $t0                     # $s6 = Q0Q-1      
