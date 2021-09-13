@@ -27,6 +27,10 @@ prompt3:
     .asciiz "Enter a: "
 prompt4:
     .asciiz "Enter r: "
+message1:
+    .asciiz "The Array A:\n"
+message2:
+    .asciiz "The Array B = (A)' : \n"
 space:
     .asciiz " "
 newline:
@@ -112,10 +116,15 @@ mainLoop:
     addi        $t1, $t1, 1                         # cnt++
     j           mainLoop    
 mainLoopEnd:
+
+    li          $v0, 4                              # print string mode
+    la          $a0, message1                       # prints "the array A"
+    syscall
+    
     move        $a0, $s0
     move        $a1, $s1
     move        $a2, $s5
-    jal         printMatrix
+    jal         printMatrix                         # call print matrix with argument m, n, Addr(A)
 
     move        $a0, $s4
     jal         mallocInStack                       # malloc(n*m)
@@ -127,10 +136,14 @@ mainLoopEnd:
     move        $a3, $s6                            # a4 = addr(B)
     jal         transposeMatrix                     # calls transpose matrix with arguments a0 - a3
 
+    li          $v0, 4                              # print string mode
+    la          $a0, message2                       # print "The array B = A' :"
+    syscall
+
     move        $a0, $s1                            # a0 = n
     move        $a1, $s0                            # a1 = m
     move        $a2, $s6                            # a2 = addr(B)
-    jal         printMatrix
+    jal         printMatrix                         # calls print matrix with the above arguments
 
     move        $sp, $fp                            # start restoring stack and freeing memory
     lw          $fp, ($sp)                          # restore fp
@@ -243,7 +256,7 @@ transposeMatrix_loop_end:
     jr          $ra                                 # return to ra
 
 
-InvalidMessage:
+InvalidMessage:                                     # print invalid message passed as argument and exits
     li          $v0, 4
     syscall
     j           endProg
