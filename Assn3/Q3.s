@@ -132,6 +132,9 @@ mainLoopEnd:
     move        $a2, $s6                            # a2 = addr(B)
     jal         printMatrix
 
+    move        $sp, $fp                            # start restoring stack and freeing memory
+    lw          $fp, ($sp)                          # restore fp
+    addi        $sp, $sp, 4                         # deallocate 4
     j           endProg
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
                                                     # and performs sanity check, if falied shows error message
