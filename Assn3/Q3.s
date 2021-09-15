@@ -27,6 +27,10 @@ prompt3:
     .asciiz "Enter a: "
 prompt4:
     .asciiz "Enter r: "
+message1:
+    .asciiz "The Array A:\n"
+message2:
+    .asciiz "The Array B = (A)' : \n"
 space:
     .asciiz " "
 newline:
@@ -41,7 +45,9 @@ sanityMessage:
 # n     :       $s1 column
 # a     :       $s2 populate Gp a0
 # r     :       $s3 Gp ratio
-
+# m*n   :       $s4 total number of elements
+# A     :       $s5 base address of A
+# B     :       $s6 base address of B
 main:
     jal         initStack                           # initializing stack
     li          $v0, 4                              # print string mode
@@ -110,10 +116,38 @@ mainLoop:
     addi        $t1, $t1, 1                         # cnt++
     j           mainLoop    
 mainLoopEnd:
+
+    li          $v0, 4                              # print string mode
+    la          $a0, message1                       # prints "the array A"
+    syscall
+    
     move        $a0, $s0
     move        $a1, $s1
     move        $a2, $s5
-    jal         printMatrix
+    jal         printMatrix                         # call print matrix with argument m, n, Addr(A)
+
+    move        $a0, $s4
+    jal         mallocInStack                       # malloc(n*m)
+    move        $s6, $v0                            # base address of B stored in s6
+
+    move        $a0, $s0                            # a0 = m
+    move        $a1, $s1                            # a1 = n
+    move        $a2, $s5                            # a3 = addr(A)
+    move        $a3, $s6                            # a4 = addr(B)
+    jal         transposeMatrix                     # calls transpose matrix with arguments a0 - a3
+
+    li          $v0, 4                              # print string mode
+    la          $a0, message2                       # print "The array B = A' :"
+    syscall
+
+    move        $a0, $s1                            # a0 = n
+    move        $a1, $s0                            # a1 = m
+    move        $a2, $s6                            # a2 = addr(B)
+    jal         printMatrix                         # calls print matrix with the above arguments
+
+    move        $sp, $fp                            # start restoring stack and freeing memory
+    lw          $fp, ($sp)                          # restore fp
+    addi        $sp, $sp, 4                         # deallocate 4
     j           endProg
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
                                                     # and performs sanity check, if falied shows error message
@@ -192,8 +226,37 @@ printMatrix_loop_end:
     addi        $sp, $sp, 8                         # frees the memory on stack
     jr          $ra                                 # return to ra
 
+transposeMatrix:
+    # a0 = m, a1 = n, a2 = addr(A), a3 = addr(B)
+    # local variable i-t0 -> 1d euivalent index of A, rowCount-$t1, $t2 = colcount, t3= n*m, t4 = transpose index
+    move        $t0, $zero                          # i = 0
+    move        $t1, $zero                          # row count = 0
+    move        $t2, $a1                            # col count = n, or 0 in mod n domain
+    mult        $a0, $a1                            # Hi,Lo = n*m
+    mflo        $t3                                 # t3 = n*m
+    move        $t4, $zero                          # t4 = 0
+transposeMatrix_loop_begin:
+    beq         $t0, $t3, transposeMatrix_loop_end  # loop termination condition
+    bne         $t2, $a1, transposeMatrix_loop_end_if   # branch to endif col != n
+    move        $t2, $zero                          # col = 0 = n mod n
+    move        $t4, $t1                            # col <-> row
+    addi        $t1, $t1, 1                         # rowCount ++
+transposeMatrix_loop_end_if:
+    sll         $t5, $t0, 2                         # t5 = 4*i
+    add         $t5, $t5, $a2                       # t5 = (A+4*i)
+    lw          $t5, ($t5)                          # t5 = *(A+4*i)
+    sll         $t6, $t4, 2                         # t6 = 4*transpose index
+    add         $t6, $t6, $a3                       # t6 = 4*transpose index + B
+    sw          $t5, ($t6)                          # *(t6) = t5 
+    add         $t4, $t4, $a0                       # t4 += m
+    addi        $t0, $t0, 1                         # t0 ++
+    addi        $t2, $t2, 1                         # colCount ++
+    j           transposeMatrix_loop_begin          # loop
+transposeMatrix_loop_end:
+    jr          $ra                                 # return to ra
 
-InvalidMessage:
+
+InvalidMessage:                                     # print invalid message passed as argument and exits
     li          $v0, 4
     syscall
     j           endProg
