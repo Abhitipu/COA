@@ -15,26 +15,30 @@
     .globl  sortArray
 
     .data
-        arr:    .space  40
+        array:    .space  40
         size:   .word   10
 
 # program output text constants
 prompt1:
-    .asciiz "Please enter 10 integers:\n"
+    .asciiz "Please enter 10 integers one by one:\n"
 prompt2:
-    .asciiz "Please enter the value of k [1-10]:"
+    .asciiz "Please enter the value of k[1-10]: "
+prompt3:
+    .asciiz "The sorted array is:\n"
 sanityMesg:
     .asciiz "Invalid k entered!"
 newline:
     .asciiz "\n"
 result:
-    .asciiz "The kth largest element is:"
+    .asciiz "The kth largest element is: "
 
 # main program
 #
 # program variables
 #   k: $s1
 #   n: $s0
+#   array: (see .data)
+#   size: (see .data)
 
 .text
     .ent main
@@ -46,7 +50,7 @@ main:
 
     lw          $s0, size        # s0 -> size fo the array (predefined to be 10)
     li          $t0, 0           # t0 -> index of array to read input
-    la          $t1, arr         # s1 -> base address of the array
+    la          $t1, array         # s1 -> base address of the array
 
     readInput:
         beq         $t0, $s0, readK              # i < n
@@ -71,7 +75,7 @@ main:
         ble         $s1, $zero, sanityCheck      # k <= 0
 
     callSort:
-        la          $a0, arr
+        la          $a0, array
         lw          $a1, size
         jal         sortArray                    # jump and link, call sort procedure
         j           printOutput
@@ -82,19 +86,41 @@ main:
         syscall
         j           exit
 
-    printOutput:
+    printOutput:                                 # Prints the array
+        la          $t1, array                   # base address of the array
+        li          $t2, 0                       # i = 0
+
+        li          $v0, 4                       # Print string mode
+        la          $a0, prompt3
+        syscall
+
+    printLoop: 
+        beq         $t2, $s0, printKth           # compare if i < n
+        sll		    $t3, $t2, 2			         # $t3 = $t2 << 2
+        add         $t3, $t1, $t3                # add to base address   
+
+        li	    	$v0, 1                       # print int mode
+        lw          $a0, 0($t3)
+        syscall
+
+        li          $v0, 4                       # print string mode
+        la          $a0, newline                 # for newline
+        syscall    
+
+        addi        $t2, 1                       # i++
+        j printLoop
+        
+    printKth:
         li          $v0, 4                       # print string mode
         la          $a0, result
         syscall
-
-        la          $t1, arr                     # Reload the base address of the array
 
         sub         $s1, $s0, $s1                # k = n - k since kth largest element is present at index n - k
         sll         $s1, $s1, 2
         add         $s1, $t1, $s1
 
-        lw          $t1, 0($s1)
-        li          $v0, 1
+        lw          $t1, 0($s1)                  # load word for printing
+        li          $v0, 1                       # print int mode
         move        $a0, $t1                     # printing A[k]
         syscall
 
