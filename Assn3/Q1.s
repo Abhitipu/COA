@@ -75,7 +75,11 @@ main:
     li          $v0, 1                              # print int mode
     syscall
 
-    j           endProg
+    li          $v0, 10                             # terminate program code
+    syscall                                         # main ends here
+
+
+# multiply booth algo Procedure
 multiply_booth:
     # Algo starts
     # program variables
@@ -122,6 +126,9 @@ multiply_booth_return:
     sll         $v0, $t4, 16                        # A sent to upper 16 bits
     or          $v0, $v0, $t6                       # lower 16  bit set as that of Q
     jr          $ra
+# Booth Algo Procedure Ends here
+
+
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
                                                     # and performs sanity check, if falied shows error message
                                                     # goes to end Program
