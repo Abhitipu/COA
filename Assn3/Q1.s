@@ -32,16 +32,11 @@ resultMessage:
     .asciiz "Product of the two numbers are: "
 
     .text
-# main program
+# Main program
 # 
 # program variables
-# n     :       $s0 (Count)
 # var1  :       $s1 (MULTIPLIER)|Q
 # var2  :       $s2 (MULTIPLICAND)|M
-# A     :       $s3 (A)
-# M     :       $s4 (M)
-# Q     :       $s5 (Q)
-# Q0Q-1 :       $s6 (Q0Q-1) (this will be maintained in the loop)
 
 main:
     li          $v0, 4                              # print string mode
@@ -67,41 +62,66 @@ main:
     la          $a1, sanityMessage2                 # prepare arguments for sanity check of $s2
     add         $a0, $zero, $s2                      
     jal		    sanityCheck				            # jump to sanityCheck and save position to $ra
+    move        $a0, $s1
+    move        $a1, $s2
 
+    jal         multiply_booth
+    move        $s3, $v0                            # store the ans in $s3
+    la          $a0, resultMessage                  # print result message
+    li          $v0, 4                              # print string mode
+    syscall
+    
+    move        $a0, $s3                            # move the answer to print 
+    li          $v0, 1                              # print int mode
+    syscall
 
+    j           endProg
+multiply_booth:
     # Algo starts
-    li          $s0, 16                             # n = 16, for 16 bit numbers
-    move 	    $s3, $zero		                    # $s3 = $zero, A = 0
-    move        $s4, $s2                            # $s4 = $s2, M = multiplicand = var2
-    move        $s5, $s1                            # $s5 = $s1, Q = multiplier = var1
-    andi        $s5, $s5, 0xffff                    # $Q's upper 16 bits set to 0
-    andi        $t0, $s5, 1                         # t0 = Q0
+    # program variables
+    # temp  :       $t0 temp
+    # n     :       $t1 (Count)
+    # var1  :       $t2 (MULTIPLIER)|Q
+    # var2  :       $t3 (MULTIPLICAND)|M
+    # A     :       $t4 (A)
+    # M     :       $t5 (M)
+    # Q     :       $t6 (Q)
+    # Q0Q-1 :       $t7 (Q0Q-1) (this will be maintained in the loop)
+    li          $t1, 16                             # n = 16, for 16 bit numbers
+    move 	    $t4, $zero		                    # $t4 = $zero, A = 0
+    move        $t5, $a1                            # $t5 = $a1, M = multiplicand = var2
+    move        $t6, $a0                            # $t6 = $a0, Q = multiplier = var1
+    andi        $t6, $t6, 0xffff                    # $Q's upper 16 bits set to 0
+    andi        $t0, $t6, 1                         # t0 = Q0
     sll         $t0, $t0, 1                         # shift left logical
-    add         $s6, $zero, $t0                     # $s6 = Q0Q-1      
+    add         $t7, $zero, $t0                     # $t7 = Q0Q-1      
 
 BoothLoop:
     li          $t0, 2
-    beq         $t0, $s6, BoothLoop_10              # Q0Q-1 = 10
+    beq         $t0, $t7, BoothLoop_10              # Q0Q-1 = 10
     li          $t0, 1
-    beq         $t0, $s6, BoothLoop_01              # Q0Q-1 = 01
+    beq         $t0, $t7, BoothLoop_01              # Q0Q-1 = 01
 BoothLoop_Ashift_Cupdate:                           # Arithmetic Shift and Count Update
-    andi        $t0, $s3, 1                         # last digit of A saved
-    sra         $s3, $s3, 1                         # right shift A
+    andi        $t0, $t4, 1                         # last digit of A saved
+    sra         $t4, $t4, 1                         # right shift A
     sll         $t0, $t0, 16                        # extracted bit sent to 2^16 place                    
-    or          $s5, $t0, $s5                       # extracted bit plaeced at 2^16 place of Q
-    andi        $s6, $s5, 3                         # new Q0Q-1 extracted
-    srl         $s5, $s5, 1                         # Q right shifted
-    addi        $s0, $s0, -1                        # count = count - 1
-    beq         $s0, $zero, printAns                # Loop termination condition                            
+    or          $t6, $t0, $t6                       # extracted bit plaeced at 2^16 place of Q
+    andi        $t7, $t6, 3                         # new Q0Q-1 extracted
+    srl         $t6, $t6, 1                         # Q right shifted
+    addi        $t1, $t1, -1                        # count = count - 1
+    beq         $t1, $zero, multiply_booth_return                # Loop termination condition                            
     j           BoothLoop                           # continue loop
 BoothLoop_01:
-    add         $s3, $s3, $s4                       # A updated to A+M in AQ 
+    add         $t4, $t4, $t5                       # A updated to A+M in AQ 
     j           BoothLoop_Ashift_Cupdate
 BoothLoop_10:
-    sub         $s3, $s3, $s4                       # A updated to A-M in AQ
+    sub         $t4, $t4, $t5                       # A updated to A-M in AQ
     j           BoothLoop_Ashift_Cupdate
-    
 
+multiply_booth_return:    
+    sll         $v0, $t4, 16                        # A sent to upper 16 bits
+    or          $v0, $v0, $t6                       # lower 16  bit set as that of Q
+    jr          $ra
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
                                                     # and performs sanity check, if falied shows error message
                                                     # goes to end Program
@@ -122,14 +142,6 @@ InvalidMessage:
     li          $v0, 4
     syscall
     j           endProg
-printAns:
-    la          $a0, resultMessage                  # print result message
-    li          $v0, 4                              # print string mode
-    syscall
-    sll         $a0, $s3, 16                        # A sent to upper 16 bits
-    or          $a0, $a0, $s5                       # lower 16  bit set as that of Q
-    li          $v0, 1                              # print int mode
-    syscall
 
 endProg:
     li          $v0, 10
