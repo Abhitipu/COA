@@ -62,11 +62,11 @@ main:
     la          $a1, sanityMessage2                 # prepare arguments for sanity check of $s2
     add         $a0, $zero, $s2                      
     jal		    sanityCheck				            # jump to sanityCheck and save position to $ra
-    move        $a0, $s1
-    move        $a1, $s2
+    move        $a0, $s1                            # argument 1 (s1)
+    move        $a1, $s2                            # argument 2 (s2)
 
-    jal         multiply_booth
-    move        $s3, $v0                            # store the ans in $s3
+    jal         multiply_booth                      # calls multiply_booth algo
+    move        $s3, $v0                            # store the return value in $s3
     la          $a0, resultMessage                  # print result message
     li          $v0, 4                              # print string mode
     syscall
@@ -125,20 +125,20 @@ multiply_booth_return:
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
                                                     # and performs sanity check, if falied shows error message
                                                     # goes to end Program
-    lw          $t0, sanitymin 
+    lw          $t0, sanitymin                      # t0 = sanityMin
     add         $t2, $a0, $zero                     # saves a copy of a0 in $t2                      
     slt         $t1, $a0, $t0                       # t1 = num<sanityMin ? 1:0
     add		    $a0, $zero, $a1		                # $a0 = $zero + $a1 to call Invalid message
     bne         $t1, $zero, InvalidMessage          # if num<sanityMin jump to Invalid message
     add         $a0, $zero, $t2                     # restoring a0
-    lw          $t0, sanitymax
+    lw          $t0, sanitymax                      # t0 = sanityMax
     slt         $t1, $t0, $a0                       # t1 = sanityMax < num ? 1:0
     add		    $a0, $zero, $a1		                # $a0 = $zero + $a1 to call Invalid message
     bne         $t1, $zero, InvalidMessage          # if sanityMax < num jump to Invalid message
     add         $a0, $zero, $t2                     # restoring a0
     jr		    $ra					                # jump to $ra
     
-InvalidMessage:
+InvalidMessage:                                     # address of message passed in a0
     li          $v0, 4
     syscall
     j           endProg
