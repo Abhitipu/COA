@@ -37,7 +37,7 @@ resultMessage:
 # program variables
 # var1  :       $s1 (MULTIPLIER)|Q
 # var2  :       $s2 (MULTIPLICAND)|M
-
+# ans   :       $s3 (s1 * s2)
 main:
     li          $v0, 4                              # print string mode
     la          $a0, prompt1                        # loading the address of prompt 1
