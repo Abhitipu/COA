@@ -115,14 +115,11 @@ main:
     move        $a3, $s6                            # a4 = addr(B)
     jal         transposeMatrix                     # calls transpose matrix with arguments a0 - a3
 
-    li          $v0, 4                              # print string mode
-    la          $a0, message2                       # print "The array B = A' :"
-    syscall
-
-    move        $a0, $s1                            # a0 = n
-    move        $a1, $s0                            # a1 = m
-    move        $a2, $s6                            # a2 = addr(B)
-    jal         printMatrix                         # calls print matrix with the above arguments
+    move        $a0, $s1
+    move        $a1, $s4
+    jal         recursive_Det
+    move        $a0, $v0
+    li          $v0, 1
 
     move        $sp, $fp                            # start restoring stack and freeing memory
     lw          $fp, ($sp)                          # restore fp
@@ -361,20 +358,20 @@ getIntermediateMatrix_loop:
     move        $t5, $zero                          # j = 0 new row
 getIntermediateMatrix_loop_endIf1:
     # see if i == iskip 
-    bne         $t4, $a1, getIntermediateMatrix_loop_endIf1 # if i != iskip then ok
+    bne         $t4, $a1, getIntermediateMatrix_loop_endIf2 # if i != iskip then ok
     # then k += n i++ and continue
     add         $t0, $t0, $a3                       # k+= n
     addi        $t4, $t4, 1                         # i++
     j           getIntermediateMatrix_loop          # continue loop
 getIntermediateMatrix_loop_endIf2:
     # see if j == jskip
-    bne         $t5, $a2, getIntermediateMatrix_loop_endIf2 # if j != jskip then ok
+    bne         $t5, $a2, getIntermediateMatrix_loop_endIf3 # if j != jskip then ok
     # then j++, k++ and continue
     addi        $t0, $t0, 1                         # k+= n
     addi        $t5, $t5, 1                         # j++
     j           getIntermediateMatrix_loop          # continue loop 
     
-getIntermediateMatrix_loop_endIf2:
+getIntermediateMatrix_loop_endIf3:
     sll         $t6, $t0, 2
     add         $t6, $a0, $t6
     lw          $t6, ($t6)
