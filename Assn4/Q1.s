@@ -215,34 +215,108 @@ printMatrix_loop_end:
     addi        $sp, $sp, 8                         # frees the memory on stack
     jr          $ra                                 # return to ra
 
-transposeMatrix:
-    # a0 = m, a1 = n, a2 = addr(A), a3 = addr(B)
-    # local variable i-t0 -> 1d euivalent index of A, rowCount-$t1, $t2 = colcount, t3= n*m, t4 = transpose index
-    move        $t0, $zero                          # i = 0
-    move        $t1, $zero                          # row count = 0
-    move        $t2, $a1                            # col count = n, or 0 in mod n domain
-    mult        $a0, $a1                            # Hi,Lo = n*m
-    mflo        $t3                                 # t3 = n*m
-    move        $t4, $zero                          # t4 = 0
-transposeMatrix_loop_begin:
-    beq         $t0, $t3, transposeMatrix_loop_end  # loop termination condition
-    bne         $t2, $a1, transposeMatrix_loop_end_if   # branch to endif col != n
-    move        $t2, $zero                          # col = 0 = n mod n
-    move        $t4, $t1                            # col <-> row
-    addi        $t1, $t1, 1                         # rowCount ++
-transposeMatrix_loop_end_if:
-    sll         $t5, $t0, 2                         # t5 = 4*i
-    add         $t5, $t5, $a2                       # t5 = (A+4*i)
-    lw          $t5, ($t5)                          # t5 = *(A+4*i)
-    sll         $t6, $t4, 2                         # t6 = 4*transpose index
-    add         $t6, $t6, $a3                       # t6 = 4*transpose index + B
-    sw          $t5, ($t6)                          # *(t6) = t5 
-    add         $t4, $t4, $a0                       # t4 += m
-    addi        $t0, $t0, 1                         # t0 ++
-    addi        $t2, $t2, 1                         # colCount ++
-    j           transposeMatrix_loop_begin          # loop
-transposeMatrix_loop_end:
-    jr          $ra                                 # return to ra
+recursive_Det:
+    # parameters a0 - n', a1 - Adderess Of n'xn' matrix/array , n'>0 by sanityCheck in main
+recursive_Det_Base:
+    li          $t0, 1                              # t0 = 1
+    bne         $a0, $t0, recursive_Det_Recurse     # if n' != 1, go to recurse
+    lw          $v0, ($a1)                          # load A[0][0]
+    jr          $ra                                 # return
+recursive_Det_Recurse:
+    # Basic Frame structure
+    # | a0  |12  a0 or n'
+    # | a1  |8   a1 or Base Addr of array
+    # | ra  |4   The return address
+    # | fp' |0   <- fp M[fp] = old fp pointer
+    # | i   |-4  i = row index                                      (register t1)
+    # | j   |-8  j = col index                                      (register t2)
+    # | Ans |-12 This stores the return value                       (register t3)
+    # | fla |-16 Flag to tell if we need to add(=0) or subtract(=1) (register t4)
+    # | k   |-20 k = n*i + j, k goes from 0 to n*n -1               (register t5)
+    # therefore we use 10*4 bytes thus we will decrease the stack by 40 bytes
+    addi        $sp, $sp, -16                       # allocate space on the stack
+    sw          $fp, ($sp)                          # M[sp] = fp
+    move        $fp, $sp                            # fp = sp
+    sw          $a0, 12($fp)                        # fp[12] = a0 = n
+    sw          $a1, 8($fp)                         # fp[8] = a1 = A
+    sw          $ra, 4($fp)                         # fp[4] = ra
+    addi        $sp, $sp , -20                      # local variables
+    move        $t1, $zero                          # $t1 initialized
+    sw          $t1, -4($fp)                        # fp[-4] = 0 = i
+    move        $t2, $zero                          # $t2 initialized
+    sw          $t2, -8($fp)                        # fp[-8] = 0 = j
+    move        $t3, $zero                          # $t3 initialized
+    sw          $t3, -12($fp)                       # fp[-12] = 0 = ans
+    move        $t4, $zero                          # $t4 initialized
+    sw          $t4, -16($fp)                       # f[-16] = 0 = flag
+    move        $t5, $zero                          # $t5 initialized
+    sw          $t5, -20($fp)                       # f[-20] = 0 = k
+
+recursive_Det_Recurse_loop_begin:
+    # get the intermediate array
+    lw          $t5, -20($fp)                       # load k
+    lw          $a0, 12($fp)                        # load n
+    mult        $a0, $a0                            # HI, LO = n^2
+    mflo        $a0                                 # a0 = n^2
+    beq         $a0, $t5, recursive_Det_Recurse_loop_end    # loop termination , k==n^2
+    addi        $t5, $t5, 1                         # t5++
+    sw          $t5, -20($fp)                       # k updated and stored
+
+    lw          $t6, 8($fp)                         # t6 = fp[8] = baseAddress
+    move        $a0, $t6                            # a0 = base Address
+
+    lw          $t6, -4($fp)                        # t6 = fp[-4] = i
+    move        $a1, $t6                            # a1 = i
+
+    lw          $t6, -8($fp)                         # t6 = fp[-8] = j
+    move        $a2, $t6                            # a2 = j
+    
+    lw          $t6, 12($fp)                        # t6 = fp[12] = n
+    move        $a3, $t6                            # a3 = n
+    jal         getIntermediateMatrix               # getIntermediateMatrix(A, i, j, n)
+
+    lw          $t6, 12($fp)                        # t6 = n
+    addi        $t6, $t6, -1                        # t6 = n' = n-1
+    move        $a0, $t6                            # argument 1
+    
+    move        $a1, $v0                            # argument 2 base address of An'xn'
+    jal         recursive_Det                       # recursive call
+
+    lw          $t6, -16($fp)                       # flag
+    bne         $t6, $zero, recursive_Det_Recurse_loop_sub  # flag to corresponding (-1)^(i+j)
+recursive_Det_Recurse_loop_add:
+    addi        $t6, $t6, 1                         # t6 = 0 + 1 = 1
+    sw          $t6, -16($fp)                       # flag updated and stored        
+    lw          $t3, -12($fp)                       # ans loaded
+    add         $t3, $t3, $v0                       # ans += v0
+    sw          $t3, -12($fp)                       # ans stored
+    j           recursive_Det_Recurse_loop_continue # skip sub part
+recursive_Det_Recurse_loop_sub:
+    move        $t6, $zero                          # t6 = 0
+    sw          $t6, -16($fp)                       # flag updated and stored 
+    lw          $t3, -12($fp)                       # ans loaded
+    sub         $t3, $t3, $v0                       # ans -= v0
+    sw          $t3, -12($fp)                       # ans stored
+recursive_Det_Recurse_loop_continue:
+    lw          $t1, -4($fp)                        # t1 = i
+    lw          $t2, -8($fp)                        # t2 = j
+    lw          $a0, 12($fp)                        # a0 = n
+    addi        $t2, $t2, 1                         # j++
+    bne         $t2, $a0, recursive_Det_Recurse_loop_endif  # if j == n need to update i,and j
+    move        $t2, $zero                          # j = 0
+    addi        $t1, $t1, 1                         # i++
+recursive_Det_Recurse_loop_endif:
+    sw          $t1, -4($fp)                        # i updated and stored
+    sw          $t2, -8($fp)                        # j updated and stored
+    j           recursive_Det_Recurse_loop_begin    # loop
+recursive_Det_Recurse_loop_end:
+
+    lw          $v0, -12($fp)                       # ans loaded
+    lw          $ra, 4($fp)                         # ra restored
+    move        $sp, $fp                            
+    lw          $fp, ($fp)                          # fp restored
+    addi        $sp, $sp, 16                        # stack poped
+    jr          $ra                                 # return to ra with answer in v0
 
 
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
