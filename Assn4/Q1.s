@@ -42,6 +42,7 @@ sanityMessage:
 # s1            : n the row and column size of the matrix
 # s2            : a the start of GP
 # s3            : r the common ratio of GP
+# s4            : base Address of Array A
 main:
     jal         initStack                           # initializing stack
    
@@ -82,24 +83,17 @@ main:
     add         $a0, $zero, $s3                      
     jal		    sanityCheck				            # jump to sanityCheck and save position to $ra
 
-    j           endProg
-    mult	    $s0, $s1			                # $s0 * $s1 = Hi and Lo registers
-    mflo	    $s4					                # copy Lo to $s4
-    move        $a0, $s4                            # argument
+    mult	    $s1, $s1			                # $s1 * $s1 = Hi and Lo registers
+    mflo	    $a0					                # copy Lo to $a0 = n*n
     jal         mallocInStack                       # malloc(n*m)
 
-    move        $s5, $v0                            # s5 = base address
-    move        $t0, $s5                            # t0 , a ptr to base address
-    move        $t1, $zero                          # count variable
-mainLoop:
-    beq         $t1, $s4, mainLoopEnd               # loop termination condition
-    sw          $s2, ($t0)                          # *(t0) = s2
-    mult        $s2, $s3                            # $s2 * $s3 = HI LO
-    mflo        $s2                                 # s2 = r * s2
-    addi        $t0, $t0, 4                         # t0 = (t0 + 4byte)
-    addi        $t1, $t1, 1                         # cnt++
-    j           mainLoop    
-mainLoopEnd:
+    move        $s4, $v0                            # s4 = base address
+    
+    move        $a0, $s4                            # base address - Arg 1
+    move        $a1, $s1                            # n no of row/col - Arg 2
+    move        $a2, $s2                            # a - Arg 3
+    move        $a3, $s3                            # r - Arg 4
+    jal         fillMatrix                          # fillMatrix(A, n, a, r);
 
     li          $v0, 4                              # print string mode
     la          $a0, message1                       # prints "the array A"
@@ -157,6 +151,24 @@ mallocInStack:
     sub         $v0, $sp, $v0                       # v0 = sp - 4*a0
     move        $sp, $v0                            # allocated 4*a0 bytes and moved sp to sp - 4*a0
     jr          $ra                                 # return to ra
+
+fillMatrix:
+# fillMatrix a0-Array Base address, a1 - n(rows and col), a2(gp a0 element), a3(r ratio)
+    mult        $a1, $a1                            # HI,LO = n*n
+    mflo        $t1                                 # t1 = n*n
+    li          $t0, 0                              # i 1D equivalent index
+    move        $t2, $a2                            # load gp first element
+fillMatrix_loop_begin:
+    beq         $t0, $t1, fillMatrix_loop_end       # if i == n*n break
+    sll         $t3, $t0, 2                         # i changed into bytes
+    add         $t3, $t3, $a0                       # t3 = (A + 4*i)
+    sw          $t2, ($t3)                          # *(A+4*i) = gpElement
+    mult        $t2, $a3                            # gpElement * ratio
+    mflo        $t2                                 # t2 updated
+    addi        $t0, $t0, 1                         # ++i
+    j		    fillMatrix_loop_begin				# jump to fillMatrix_loop_begin
+fillMatrix_loop_end:
+    jr          $ra                                 # return to ra                       
 
 printMatrix:
     addi        $sp, $sp, -8                        # allocate 8 bytes, 4 for ra, 4 for fp
@@ -230,6 +242,7 @@ transposeMatrix_loop_end_if:
     j           transposeMatrix_loop_begin          # loop
 transposeMatrix_loop_end:
     jr          $ra                                 # return to ra
+
 
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
                                                     # and performs sanity check, if falied shows error message
