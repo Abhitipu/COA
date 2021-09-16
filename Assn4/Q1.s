@@ -99,11 +99,12 @@ main:
     la          $a0, message1                       # prints "the array A"
     syscall
     
-    move        $a0, $s0
+    move        $a0, $s1                            
     move        $a1, $s1
-    move        $a2, $s5
+    move        $a2, $s4
     jal         printMatrix                         # call print matrix with argument m, n, Addr(A)
 
+    j           endProg
     move        $a0, $s4
     jal         mallocInStack                       # malloc(n*m)
     move        $s6, $v0                            # base address of B stored in s6
