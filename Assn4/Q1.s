@@ -318,6 +318,85 @@ recursive_Det_Recurse_loop_end:
     addi        $sp, $sp, 16                        # stack poped
     jr          $ra                                 # return to ra with answer in v0
 
+getIntermediateMatrix:
+    # getIntermediateMatrix(A, i, j, n)
+    # a0 = Base Address original
+    # a1 = i th row to skip
+    # a2 = j th col to skip
+    # a3 = n size of original matrix
+    
+    # frame structure
+    # a0 20
+    # a1 16
+    # a2 12
+    # a3 8
+    # ra 4
+    # fp 0<-fp
+    addi        $sp, $sp, -24                       # allocated 24 bytes
+    sw          $fp, ($sp)                          # fp stored
+    move        $fp, $sp                            # fp = sp
+    sw          $ra, 4($fp)                         # fp[4] = ra
+    sw          $a0, 20($fp)                        # fp[20] = a0                     
+    sw          $a1, 16($fp)                        # fp[16] = a1                 
+    sw          $a2, 12($fp)                        # fp[12] = a2                 
+    sw          $a3, 8($fp)                         # fp[8] = a3
+    addi        $a3, $a3, -1                        # n--           
+    mult        $a3, $a3                            # Hi, Lo = (n-1) * (n-1)
+    mflo        $a0                                 # a0 = (n') * (n')
+    jal         mallocInStack                       # call malloc and allocate a0 integer space
+    lw          $a3, 8($fp)                         # a3 loaded (n loaded)
+    mult        $a3, $a3                            # Hi, Lo = (n) * (n)
+    mflo        $t3                                 # t3 = n*n          
+    lw          $a0, 20($fp)                        # a0 loaded Base Address                     
+    lw          $a1, 16($fp)                        # a1 loaded i to skip                 
+    lw          $a2, 12($fp)                        # a2 loaded j to skip                
+    move        $t0, $zero                          # t0 = k  0 -> n*n 
+    move        $t1, $zero                          # t1 = k' 0 -> n'*n'
+    move        $t4, $zero                          # i of old matrix
+    move        $t5, $zero                          # j of old matrix
+getIntermediateMatrix_loop:
+    beq         $t0, $t3, getIntermediateMatrix_loop_end    # loop termination condition
+    bne         $t5, $a3, getIntermediateMatrix_loop_endIf1 # if j != n, then ok , skip if part
+    addi        $t4, $t4, 1                         # i++
+    move        $t5, $zero                          # j = 0 new row
+getIntermediateMatrix_loop_endIf1:
+    # see if i == iskip 
+    bne         $t4, $a1, getIntermediateMatrix_loop_endIf1 # if i != iskip then ok
+    # then k += n i++ and continue
+    add         $t0, $t0, $a3                       # k+= n
+    addi        $t4, $t4, 1                         # i++
+    j           getIntermediateMatrix_loop          # continue loop
+getIntermediateMatrix_loop_endIf2:
+    # see if j == jskip
+    bne         $t5, $a2, getIntermediateMatrix_loop_endIf2 # if j != jskip then ok
+    # then j++, k++ and continue
+    addi        $t0, $t0, 1                         # k+= n
+    addi        $t5, $t5, 1                         # j++
+    j           getIntermediateMatrix_loop          # continue loop 
+    
+getIntermediateMatrix_loop_endIf2:
+    sll         $t6, $t0, 2
+    add         $t6, $a0, $t6
+    lw          $t6, ($t6)
+    sll         $t7, $t1, 2
+    add         $t7, $v0, $t7
+    sw          $t6, ($t7)
+
+    addi        $t1, $t1, 1
+    addi        $t0, $t0, 1
+    # lw k and place to k''
+    # k++
+    # k''++
+    # lopp
+
+    j           getIntermediateMatrix_loop
+getIntermediateMatrix_loop_end:
+    lw          $ra, 4($fp)
+    lw          $fp, ($fp)
+    jr          $ra
+
+
+
 
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
                                                     # and performs sanity check, if falied shows error message
