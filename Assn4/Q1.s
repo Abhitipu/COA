@@ -153,6 +153,7 @@ fillMatrix_loop_begin:
     sw          $t2, ($t3)                          # *(A+4*i) = gpElement
     mult        $t2, $a3                            # gpElement * ratio
     mflo        $t2                                 # t2 updated
+    add         $t2, $t2, $t0                       # additional constraint
     addi        $t0, $t0, 1                         # ++i
     j		    fillMatrix_loop_begin				# jump to fillMatrix_loop_begin
 fillMatrix_loop_end:
@@ -280,6 +281,14 @@ recursive_Det_Recurse_loop_add:
     addi        $t6, $t6, 1                         # t6 = 0 + 1 = 1
     sw          $t6, -16($fp)                       # flag updated and stored        
     lw          $t3, -12($fp)                       # ans loaded
+    lw          $t5, -20($fp)                       # k+1 loaded
+    addi        $t5, $t5, -1                        # k
+    sll         $t5, $t5, 2                         # 4*k number of bytes
+    lw          $a1, 8($fp)                         # a1 = base address = fp[8]
+    add         $t5, $t5, $a1                       # t5 += a1 => t5 = addr of kth element
+    lw          $t5, ($t5)                          # t5 = kth element
+    mult        $t5, $v0                            # a[i][j] * v0
+    mflo        $v0                                 # v0 = Mij *Aij
     add         $t3, $t3, $v0                       # ans += v0
     sw          $t3, -12($fp)                       # ans stored
     j           recursive_Det_Recurse_loop_continue # skip sub part
@@ -287,6 +296,14 @@ recursive_Det_Recurse_loop_sub:
     move        $t6, $zero                          # t6 = 0
     sw          $t6, -16($fp)                       # flag updated and stored 
     lw          $t3, -12($fp)                       # ans loaded
+    lw          $t5, -20($fp)                       # k+1 loaded
+    addi        $t5, $t5, -1                        # k
+    sll         $t5, $t5, 2                         # 4*k number of bytes
+    lw          $a1, 8($fp)                         # a1 = base address = fp[8]
+    add         $t5, $t5, $a1                       # t5 += a1 => t5 = addr of kth element
+    lw          $t5, ($t5)                          # t5 = kth element
+    mult        $t5, $v0                            # a[i][j] * v0
+    mflo        $v0                                 # v0 = Mij *Aij
     sub         $t3, $t3, $v0                       # ans -= v0
     sw          $t3, -12($fp)                       # ans stored
 recursive_Det_Recurse_loop_continue:
