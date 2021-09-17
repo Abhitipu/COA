@@ -104,25 +104,15 @@ main:
     move        $a2, $s4
     jal         printMatrix                         # call print matrix with argument m, n, Addr(A)
 
-    j           endProg
-    move        $a0, $s4
-    jal         mallocInStack                       # malloc(n*m)
-    move        $s6, $v0                            # base address of B stored in s6
-
-    move        $a0, $s0                            # a0 = m
-    move        $a1, $s1                            # a1 = n
-    move        $a2, $s5                            # a3 = addr(A)
-    move        $a3, $s6                            # a4 = addr(B)
-    jal         transposeMatrix                     # calls transpose matrix with arguments a0 - a3
-
     move        $a0, $s1
     move        $a1, $s4
     jal         recursive_Det
     move        $a0, $v0
     li          $v0, 1
+    syscall
 
     move        $sp, $fp                            # start restoring stack and freeing memory
-    lw          $fp, ($sp)                          # restore fp
+    lw          $fp, ($fp)                          # restore fp
     addi        $sp, $sp, 4                         # deallocate 4
     j           endProg
 
@@ -230,14 +220,15 @@ recursive_Det_Recurse:
     # | Ans |-12 This stores the return value                       (register t3)
     # | fla |-16 Flag to tell if we need to add(=0) or subtract(=1) (register t4)
     # | k   |-20 k = n*i + j, k goes from 0 to n*n -1               (register t5)
-    # therefore we use 10*4 bytes thus we will decrease the stack by 40 bytes
+    # | A'  | -24 address of intermediate array         
+    # therefore we use 11*4 bytes thus we will decrease the stack by 44 bytes
     addi        $sp, $sp, -16                       # allocate space on the stack
     sw          $fp, ($sp)                          # M[sp] = fp
     move        $fp, $sp                            # fp = sp
     sw          $a0, 12($fp)                        # fp[12] = a0 = n
     sw          $a1, 8($fp)                         # fp[8] = a1 = A
     sw          $ra, 4($fp)                         # fp[4] = ra
-    addi        $sp, $sp , -20                      # local variables
+    addi        $sp, $sp , -24                      # local variables
     move        $t1, $zero                          # $t1 initialized
     sw          $t1, -4($fp)                        # fp[-4] = 0 = i
     move        $t2, $zero                          # $t2 initialized
@@ -253,9 +244,7 @@ recursive_Det_Recurse_loop_begin:
     # get the intermediate array
     lw          $t5, -20($fp)                       # load k
     lw          $a0, 12($fp)                        # load n
-    mult        $a0, $a0                            # HI, LO = n^2
-    mflo        $a0                                 # a0 = n^2
-    beq         $a0, $t5, recursive_Det_Recurse_loop_end    # loop termination , k==n^2
+    beq         $a0, $t5, recursive_Det_Recurse_loop_end    # loop termination , k==n
     addi        $t5, $t5, 1                         # t5++
     sw          $t5, -20($fp)                       # k updated and stored
 
@@ -271,12 +260,18 @@ recursive_Det_Recurse_loop_begin:
     lw          $t6, 12($fp)                        # t6 = fp[12] = n
     move        $a3, $t6                            # a3 = n
     jal         getIntermediateMatrix               # getIntermediateMatrix(A, i, j, n)
+    sw          $v0, -24($fp)
+    move        $a2, $v0                            
+    lw          $a1, 12($fp)
+    addi        $a1, $a1, -1
+    move        $a0, $a1
+    jal         printMatrix
 
     lw          $t6, 12($fp)                        # t6 = n
     addi        $t6, $t6, -1                        # t6 = n' = n-1
     move        $a0, $t6                            # argument 1
     
-    move        $a1, $v0                            # argument 2 base address of An'xn'
+    lw        $a1, -24($fp)                            # argument 2 base address of An'xn'
     jal         recursive_Det                       # recursive call
 
     lw          $t6, -16($fp)                       # flag
@@ -310,9 +305,9 @@ recursive_Det_Recurse_loop_end:
 
     lw          $v0, -12($fp)                       # ans loaded
     lw          $ra, 4($fp)                         # ra restored
-    move        $sp, $fp                            
+    # move        $sp, $fp                            
     lw          $fp, ($fp)                          # fp restored
-    addi        $sp, $sp, 16                        # stack poped
+    # addi        $sp, $sp, 16                        # stack poped
     jr          $ra                                 # return to ra with answer in v0
 
 getIntermediateMatrix:
@@ -378,7 +373,7 @@ getIntermediateMatrix_loop_endIf3:
     sll         $t7, $t1, 2
     add         $t7, $v0, $t7
     sw          $t6, ($t7)
-
+    addi        $t5, $t5, 1                         # j++
     addi        $t1, $t1, 1
     addi        $t0, $t0, 1
     # lw k and place to k''
