@@ -28,7 +28,7 @@ prompt3:
 message1:
     .asciiz "The Array A:\n"
 message2:
-    .asciiz "The Array B = (A)' : \n"
+    .asciiz "Final determinant of the matrix A is : "
 space:
     .asciiz " "
 newline:
@@ -48,7 +48,7 @@ main:
    
     li          $v0, 4                              # print string mode
     la          $a0, prompt1                        # loading the address of prompt 1
-    syscall
+    syscall                                         # print prompt 1
 
     li          $v0, 5                              # read int mode
     syscall                                         # scans int into $v0
@@ -104,6 +104,10 @@ main:
     move        $a2, $s4
     jal         printMatrix                         # call print matrix with argument m, n, Addr(A)
 
+    li          $v0, 4                              # print string mode
+    la          $a0, message2                       # prints "the final det of A is "
+    syscall
+
     move        $a0, $s1
     move        $a1, $s4
     jal         recursive_Det
@@ -111,15 +115,14 @@ main:
     li          $v0, 1
     syscall
 
+    li          $v0, 4                              # print string mode
+    la          $a0, newline                        # prints "newline"
+    syscall
+
     move        $sp, $fp                            # start restoring stack and freeing memory
     lw          $fp, ($fp)                          # restore fp
     addi        $sp, $sp, 4                         # deallocate 4
     j           endProg
-
-
-
-
-
 
 initStack:
     # need to save current fp
@@ -133,7 +136,12 @@ pushToStack:
     sw          $a0, ($sp)                          # saves a0 to M[sp]
     jr          $ra                                 # return to ra
 
-mallocInStack:
+popFromStack:                                       # pops last integer from the stack, and returns the v0
+    lw          $v0, ($sp)                          # loads M[sp] on v0
+    addi        $sp, $sp, 4                         # deallocate 4 bytes
+    jr          $ra                                 # return to ra
+
+mallocInStack:                                      # malloc array on stack and returns start address
     move        $v0, $a0                            # moves argument to v0
     sll         $v0, $v0, 2                         # v0 converted to number of bytes
     sub         $v0, $sp, $v0                       # v0 = sp - 4*a0
@@ -142,6 +150,7 @@ mallocInStack:
 
 fillMatrix:
 # fillMatrix a0-Array Base address, a1 - n(rows and col), a2(gp a0 element), a3(r ratio)
+# fillMatrix with the given gp(a2(first element), a3(r ratio)) in row major fashion
     mult        $a1, $a1                            # HI,LO = n*n
     mflo        $t1                                 # t1 = n*n
     li          $t0, 0                              # i 1D equivalent index
@@ -153,13 +162,13 @@ fillMatrix_loop_begin:
     sw          $t2, ($t3)                          # *(A+4*i) = gpElement
     mult        $t2, $a3                            # gpElement * ratio
     mflo        $t2                                 # t2 updated
-    add         $t2, $t2, $t0                       # additional constraint
+    # add         $t2, $t2, $t0                       # additional constraint, With this you may get non zero 3x3 matrix
     addi        $t0, $t0, 1                         # ++i
     j		    fillMatrix_loop_begin				# jump to fillMatrix_loop_begin
 fillMatrix_loop_end:
     jr          $ra                                 # return to ra                       
 
-printMatrix:
+printMatrix:                                        # takes n(rows), m(col), a2(base address) and prints the matrix
     addi        $sp, $sp, -8                        # allocate 8 bytes, 4 for ra, 4 for fp
     sw          $ra, 4($sp)                         # M[sp+4] = ra
     sw          $fp, ($sp)                          # M[sp] = fp
@@ -205,7 +214,7 @@ printMatrix_loop_end:
 
 recursive_Det:
     # parameters a0 - n', a1 - Adderess Of n'xn' matrix/array , n'>0 by sanityCheck in main
-recursive_Det_Base:
+recursive_Det_Base:                                 # base case of recursion 1x1 matrix
     li          $t0, 1                              # t0 = 1
     bne         $a0, $t0, recursive_Det_Recurse     # if n' != 1, go to recurse
     lw          $v0, ($a1)                          # load A[0][0]
@@ -262,12 +271,7 @@ recursive_Det_Recurse_loop_begin:
     move        $a3, $t6                            # a3 = n
     jal         getIntermediateMatrix               # getIntermediateMatrix(A, i, j, n)
     sw          $v0, -24($fp)
-    move        $a2, $v0                            
-    lw          $a1, 12($fp)
-    addi        $a1, $a1, -1
-    move        $a0, $a1
-    jal         printMatrix
-
+    
     lw          $t6, 12($fp)                        # t6 = n
     addi        $t6, $t6, -1                        # t6 = n' = n-1
     move        $a0, $t6                            # argument 1
@@ -322,13 +326,13 @@ recursive_Det_Recurse_loop_end:
 
     lw          $v0, -12($fp)                       # ans loaded
     lw          $ra, 4($fp)                         # ra restored
-    # move        $sp, $fp                            
+    move        $sp, $fp                            
     lw          $fp, ($fp)                          # fp restored
-    # addi        $sp, $sp, 16                        # stack poped
+    addi        $sp, $sp, 16                        # stack poped and restored
     jr          $ra                                 # return to ra with answer in v0
 
 getIntermediateMatrix:
-    # getIntermediateMatrix(A, i, j, n)
+    # getIntermediateMatrix(A, i, j, n) returns the address of intermediate matrix with ith row and jth column removed( here i and j are zero indexed)
     # a0 = Base Address original
     # a1 = i th row to skip
     # a2 = j th col to skip
@@ -384,28 +388,20 @@ getIntermediateMatrix_loop_endIf2:
     j           getIntermediateMatrix_loop          # continue loop 
     
 getIntermediateMatrix_loop_endIf3:
-    sll         $t6, $t0, 2
-    add         $t6, $a0, $t6
-    lw          $t6, ($t6)
-    sll         $t7, $t1, 2
-    add         $t7, $v0, $t7
-    sw          $t6, ($t7)
+    sll         $t6, $t0, 2                         # k converted into number of bytes
+    add         $t6, $a0, $t6                       # a + 4*k
+    lw          $t6, ($t6)                          # t6 = *(A +4*k)
+    sll         $t7, $t1, 2                         # k' converted into number of bytes
+    add         $t7, $v0, $t7                       # v0 is the base address returned from malloc, 
+    sw          $t6, ($t7)                          # store t6 into new matrix at k' index
     addi        $t5, $t5, 1                         # j++
-    addi        $t1, $t1, 1
-    addi        $t0, $t0, 1
-    # lw k and place to k''
-    # k++
-    # k''++
-    # lopp
-
-    j           getIntermediateMatrix_loop
+    addi        $t1, $t1, 1                         # k'++
+    addi        $t0, $t0, 1                         # k++
+    j           getIntermediateMatrix_loop          # loop
 getIntermediateMatrix_loop_end:
-    lw          $ra, 4($fp)
-    lw          $fp, ($fp)
-    jr          $ra
-
-
-
+    lw          $ra, 4($fp)                         # restore ra
+    lw          $fp, ($fp)                          # restore fp
+    jr          $ra                                 # return to ra, NOTE SINCE WE ARE USING MALLOC HERE SP IS NOT RESTORED, IT IS THE RESPONSIBILITY OF CALLER
 
 sanityCheck:                                        # Takes the number in $a0, invalid message address in $a1.
                                                     # and performs sanity check, if falied shows error message
@@ -421,7 +417,7 @@ InvalidMessage:                                     # print invalid message pass
     syscall
     j           endProg
 
-endProg:
+endProg:                                            # ends program
     li          $v0, 10
     syscall
     
