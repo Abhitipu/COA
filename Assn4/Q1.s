@@ -93,13 +93,17 @@ main:
     add         $a0, $zero, $s3                      
     jal		    sanityCheck				            # jump to sanityCheck and save position to $ra
 
+    la          $a1, sanityMessage                  # prepare arguments for sanity check of $s5
+    add         $a0, $zero, $s5                      
+    jal		    sanityCheck				            # jump to sanityCheck and save position to $ra
+
     mult	    $s1, $s1			                # $s1 * $s1 = Hi and Lo registers
     mflo	    $a0					                # copy Lo to $a0 = n*n
     jal         mallocInStack                       # malloc(n*m)
 
     move        $s4, $v0                            # s4 = base address
     
-    move        $a0, $s5                            # m - Arg 5 pushed to stack, fillMatrix shall load and use it inside
+    move        $a0, $s5                            # m - Arg 5 pushed to stack(since we have only 4 registers for arguments), fillMatrix shall load and use it inside
     jal         pushToStack
     move        $a0, $s4                            # base address - Arg 1
     move        $a1, $s1                            # n no of row/col - Arg 2
@@ -112,20 +116,20 @@ main:
     la          $a0, message1                       # prints "the array A"
     syscall
     
-    move        $a0, $s1                            
-    move        $a1, $s1
-    move        $a2, $s4
+    move        $a0, $s1                            # argument 1 n (row)
+    move        $a1, $s1                            # argument 2 n (col)
+    move        $a2, $s4                            # argument 3 Addr(A)
     jal         printMatrix                         # call print matrix with argument m, n, Addr(A)
 
     li          $v0, 4                              # print string mode
     la          $a0, message2                       # prints "the final det of A is "
     syscall
 
-    move        $a0, $s1
-    move        $a1, $s4
-    jal         recursive_Det
-    move        $a0, $v0
-    li          $v0, 1
+    move        $a0, $s1                            # arg1 a0 = n size of square matrix
+    move        $a1, $s4                            # arg2 a1 = Addr(A)
+    jal         recursive_Det                       # calls recursive_Det subroutine
+    move        $a0, $v0                            # a0 = det(A)
+    li          $v0, 1                              # print int mode
     syscall
 
     li          $v0, 4                              # print string mode
@@ -135,7 +139,10 @@ main:
     move        $sp, $fp                            # start restoring stack and freeing memory
     lw          $fp, ($fp)                          # restore fp
     addi        $sp, $sp, 4                         # deallocate 4
-    j           endProg
+endProg:                                            # ends program
+    li          $v0, 10
+    syscall
+    
 
 initStack:
     # need to save current fp
@@ -435,8 +442,3 @@ InvalidMessage:                                     # print invalid message pass
     li          $v0, 4
     syscall
     j           endProg
-
-endProg:                                            # ends program
-    li          $v0, 10
-    syscall
-    
