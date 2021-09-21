@@ -1,6 +1,6 @@
 # 
-# Assignment 3
-# Problem no: 3
+# Assignment 4
+# Problem no: 1
 # Semester: 5th
 # Group: 28
 # Members: 
@@ -8,8 +8,8 @@
 # Abhinandan De (19CS10069)
 # 
 
-# This program reads two 16 bit signed integers.
-# Then performs booths mutliplication algorithm to compute the product
+# This reads 3 integers n, a, r 
+# Then Calulates det(A) where A is nxn matrix filled with gp(a,r) filled in row major fashion
 
     .globl main
 
@@ -25,6 +25,8 @@ prompt2:
     .asciiz "Enter a(positive integer): "
 prompt3:
     .asciiz "Enter r(positive integer): "
+prompt4:
+    .asciiz "Enter m(positive integer): "
 message1:
     .asciiz "The Array A:\n"
 message2:
@@ -43,6 +45,7 @@ sanityMessage:
 # s2            : a the start of GP
 # s3            : r the common ratio of GP
 # s4            : base Address of Array A
+# s5            : m the mod
 main:
     jal         initStack                           # initializing stack
    
@@ -70,6 +73,13 @@ main:
     syscall                                         # scans int into $v0
     add         $s3, $zero, $v0                     # saves r in $s3
 
+    li          $v0, 4                              # print string mode
+    la          $a0, prompt4                        # loading the address of prompt 4
+    syscall
+
+    li          $v0, 5                              # read int mode
+    syscall                                         # scans int into $v0
+    add         $s5, $zero, $v0                     # saves m in $s5
     
     la          $a1, sanityMessage                  # prepare arguments for sanity check of $s1
     add         $a0, $zero, $s1                      
@@ -89,11 +99,14 @@ main:
 
     move        $s4, $v0                            # s4 = base address
     
+    move        $a0, $s5                            # m - Arg 5 pushed to stack, fillMatrix shall load and use it inside
+    jal         pushToStack
     move        $a0, $s4                            # base address - Arg 1
     move        $a1, $s1                            # n no of row/col - Arg 2
     move        $a2, $s2                            # a - Arg 3
     move        $a3, $s3                            # r - Arg 4
-    jal         fillMatrix                          # fillMatrix(A, n, a, r);
+    jal         fillMatrix                          # fillMatrix(A, n, a, r, m); m is passed in stack and sp is kept unchanged
+    jal         popFromStack                        # poped m from the stack
 
     li          $v0, 4                              # print string mode
     la          $a0, message1                       # prints "the array A"
@@ -149,12 +162,16 @@ mallocInStack:                                      # malloc array on stack and 
     jr          $ra                                 # return to ra
 
 fillMatrix:
-# fillMatrix a0-Array Base address, a1 - n(rows and col), a2(gp a0 element), a3(r ratio)
-# fillMatrix with the given gp(a2(first element), a3(r ratio)) in row major fashion
+# fillMatrix a0-Array Base address, a1 - n(rows and col), a2(gp a0 element), a3(r ratio), m(passed in stack) loaded on register t4 
+# fillMatrix with the given gp(a2(first element), a3(r ratio))%mod m in row major fashion
+# However this function does not pop m from the stack and it is the responsobility of caller
     mult        $a1, $a1                            # HI,LO = n*n
     mflo        $t1                                 # t1 = n*n
     li          $t0, 0                              # i 1D equivalent index
+    lw          $t4, ($sp)                          # m loaded from stack
     move        $t2, $a2                            # load gp first element
+    div         $t2, $t4                            # HI = t2 % m
+    mfhi        $t2                                 # t2 = a%m
 fillMatrix_loop_begin:
     beq         $t0, $t1, fillMatrix_loop_end       # if i == n*n break
     sll         $t3, $t0, 2                         # i changed into bytes
@@ -162,7 +179,9 @@ fillMatrix_loop_begin:
     sw          $t2, ($t3)                          # *(A+4*i) = gpElement
     mult        $t2, $a3                            # gpElement * ratio
     mflo        $t2                                 # t2 updated
-    # add         $t2, $t2, $t0                       # additional constraint, With this you may get non zero 3x3 matrix
+    div         $t2, $t4                            # HI = t2 % m
+    mfhi        $t2                                 # t2 = updated with mod m
+    # add         $t2, $t2, $t0                       # additional constraint, With this you may get non singular 3x3 matrix, CORRECTED 
     addi        $t0, $t0, 1                         # ++i
     j		    fillMatrix_loop_begin				# jump to fillMatrix_loop_begin
 fillMatrix_loop_end:

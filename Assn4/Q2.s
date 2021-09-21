@@ -1,5 +1,5 @@
 # 
-# Assignment 3
+# Assignment 4
 # Problem no: 2
 # Semester: 5th
 # Group: 28
@@ -8,8 +8,8 @@
 # Abhinandan De (19CS10069)
 # 
 
-# This program computes kth largest element of an array of length 10 
-# All the elements of the array and k are entered by the user
+# This program sorts an array of length 10 
+# using the recursive sorting algorithm
 #
     .globl  main
     .globl  sortArray

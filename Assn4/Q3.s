@@ -1,6 +1,6 @@
 # 
-# Assignment 3
-# Problem no: 2
+# Assignment 4
+# Problem no: 3
 # Semester: 5th
 # Group: 28
 # Members: 
@@ -8,8 +8,8 @@
 # Abhinandan De (19CS10069)
 # 
 
-# This program computes kth largest element of an array of length 10 
-# All the elements of the array and k are entered by the user
+# This program sorts the array of ten integer
+# Then finds if a key is present or not using recursive teranary search
 #
     .globl  main
     .globl  sortArray
@@ -18,6 +18,7 @@
     .globl  printArray
     .globl  popFromStack
     .globl  SWAP
+    .globl  recurse_search
 
     .data
         array:    .space  40
@@ -59,7 +60,7 @@ main:
 
     lw          $s0, size        # s0 -> size fo the array (predefined to be 10)
     li          $t0, 0           # t0 -> index of array to read input
-    la          $t1, array         # s1 -> base address of the array
+    la          $t1, array         # t1 -> base address of the array
 
     readInput:
         beq         $t0, $s0, Sort # i < n
@@ -105,8 +106,8 @@ main:
         li          $v0, 1                  # print int mode
         move        $a0, $s1                # a0 = key
         syscall
-        la          $a0, result2
-        li          $v0, 4
+        la          $a0, result2            # load address of result 2
+        li          $v0, 4                  # print string mode
         syscall
         j           exit
 
@@ -114,13 +115,13 @@ main:
         li          $v0, 1                  # print int mode
         move        $a0, $s1                # a0 = key
         syscall
-        la          $a0, result1
-        li          $v0, 4
+        la          $a0, result1            # load address of result 1
+        li          $v0, 4                  # print string mode
         syscall
         li          $v0, 1                  # print int mode
         move        $a0, $s2                # return value
         syscall
-        la          $a0, newline
+        la          $a0, newline            # prints a newline
         li          $v0, 4
         syscall
         j           exit
@@ -337,7 +338,7 @@ printArray:
 
 
 # Arguments 
-# A - Basr Address of the array
+# A - Base Address of the array
 # start - start index
 # end - end index
 # key - Value to search
@@ -358,6 +359,7 @@ printArray:
 
 # mid1                      -4              $t1
 # mid2                      -8              $t2
+    .ent recurse_search
 recurse_search:
     slt             $t0, $a2, $a1           # if a2<a1 set t0 = 1 else t0 = 0;
     beq             $t0, $zero, recurse_search_continue  # if a1<=a2 then go to recurse, else proceed to search
@@ -375,7 +377,7 @@ recurse_search_continue:
     sw              $ra, 4($fp)             # fp40] = ra
 
     sub             $t0, $a2, $a1           # t0 = end - start
-    li              $t1, 3
+    li              $t1, 3                  # t1 = 3
     div             $t0, $t1                # LO = floor((end -start)/3)
     mflo            $t0                     # t0 = (end - start) // 3
     add             $t1, $a1, $t0           # mid1= start + (end - start)/3
@@ -383,12 +385,12 @@ recurse_search_continue:
     sub             $t2, $a2, $t0           # mid2= end - (end - start)/3
     sw              $t2, -8($fp)            # fp[-8] = mid2
 
-    # Base Cases
+    # Base Cases                            
     sll             $t0, $t1, 2             # t0 = mid1*4
     add             $t0, $t0, $a0           # t0 = A + mid1 * 4
     lw              $t0, ($t0)              # t0 = A[mid1]
     bne             $t0, $a3, recurse_search_continue1  # if key != A[mid1] search continues
-    move            $v0, $t1                # v0 = mid1
+    move            $v0, $t1                # v0 = mid1, A[mid1] == key
     j               recurse_search_return   # jump to recurse_search_return and restore fp & sp and return
 
 recurse_search_continue1:
@@ -396,7 +398,7 @@ recurse_search_continue1:
     add             $t0, $t0, $a0           # t0 = A + mid2 * 4
     lw              $t0, ($t0)              # t0 = A[mid2]
     bne             $t0, $a3, recurse_search_continue2  # if key != A[mid2] search continues
-    move            $v0, $t2                # v0 = mid2
+    move            $v0, $t2                # v0 = mid2, A[mid2] == key
     j               recurse_search_return   # jump to recurse_search_return and restore fp & sp and return
 
     # recursive cases    
@@ -432,5 +434,5 @@ recurse_search_return:
     lw              $fp, ($fp)              # fp restored
     addi            $sp, $sp, 24            # sp restored
     jr              $ra                     # jump to ra
-
+    .end recurse_search
     
