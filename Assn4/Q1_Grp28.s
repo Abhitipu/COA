@@ -302,7 +302,7 @@ recursive_Det_Recurse_loop_begin:
     addi        $t6, $t6, -1                        # t6 = n' = n-1
     move        $a0, $t6                            # argument 1
     
-    lw        $a1, -24($fp)                            # argument 2 base address of An'xn'
+    lw          $a1, -24($fp)                       # argument 2 base address of An'xn'
     jal         recursive_Det                       # recursive call
 
     lw          $t6, -16($fp)                       # flag
