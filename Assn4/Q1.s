@@ -8,8 +8,8 @@
 # Abhinandan De (19CS10069)
 # 
 
-# This reads 3 integers n, a, r 
-# Then Calulates det(A) where A is nxn matrix filled with gp(a,r) filled in row major fashion
+# This reads 3 integers n, a, r, m 
+# Then Calulates det(A) where A is nxn matrix filled with gp(a,r)mod m filled in row major fashion
 
     .globl main
 
