@@ -22,6 +22,8 @@ module TwosComp_tb;
     wire res;
 
     initial clk = 0;
+    initial bit = 0;
+    initial reset = 1;
     always #5 clk = ~clk;
 
     TwosComp twoscomp(reset, bit, clk, res);
@@ -30,19 +32,20 @@ module TwosComp_tb;
         $dumpfile("2sComp_tb.vcd");
         $dumpvars(0, twoscomp);
 
-        reset = 1; #10;
-        reset = 0; #10;
-        bit = 1; #10;
-        bit = 1; #10;
-        bit = 1; #10;
+        reset = 1; bit = 0;#10;
+        reset = 0; bit = 0; #10;
+        bit = 0; #10;
         bit = 0; #10;
         bit = 0; #10;
         bit = 1; #10;
         bit = 1; #10;
         bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #10;
+        bit = 0; #10;
         bit = 0; #10;
         bit = 1; #10;
-        bit = 1; #10;
+        bit = 1; #20;
 
         $display("end of test.");
         $finish;
