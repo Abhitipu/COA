@@ -1,0 +1,16 @@
+input       output
+01.1          11
+011.          101
+
+
+
+
+101101010110*
+010010101001*
+
+
+till 0 -> 0
+1 -> output 1
+
+next state transition
+all opposite
