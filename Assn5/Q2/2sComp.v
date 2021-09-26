@@ -32,7 +32,7 @@ endmodule // PG_Generator
 
 `endif // _PGGenerator_v_
 
-// res    encoding description
+// state  encoding description
 // A        0           Have not seen 1
 // B        1           have seen 1
 // NS  Logic 
