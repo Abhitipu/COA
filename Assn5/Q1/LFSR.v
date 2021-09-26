@@ -28,26 +28,13 @@ module lfsr_struct(
         output[3:0] state
     );
 	
-    wire[4:0] w;
-    wire [3:0] wint;
+    wire[0:4] w;
+    wire [0:3] wint;
 	// sel = 1 => set seed
+    multiplexer_struct mux[3:0] (sel, seed, w[0:3], wint);
+    dff_struct dff[3:0] (wint, clk, reset, w[1:4]);
 
-    multiplexer_struct mux3(sel, seed[3], w[0], wint[0]);
-    dff_struct dff3(wint[0], clk, reset, w[1]);
-    assign state[3] = w[1];
-
-    multiplexer_struct mux2(sel, seed[2], w[1], wint[1]);
-    dff_struct dff2(wint[1], clk, reset, w[2]);
-    assign state[2] = w[2];
-
-    multiplexer_struct mux1(sel, seed[1], w[2], wint[2]);
-    dff_struct dff1(wint[2], clk, reset, w[3]);
-    assign state[1] = w[3];
-
-    multiplexer_struct mux0(sel, seed[0], w[3], wint[3]);
-    dff_struct dff0(wint[3], clk, reset, w[4]);
-    assign state[0] = w[4];
-
+    assign state[3:0] = {w[1:4]};
     xor x1(w[0], w[4], w[3]);
 
 endmodule
