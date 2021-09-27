@@ -14,14 +14,16 @@ Abhinandan De (19CS10069)
 `ifndef _DFF_V_
 `define _DFF_V_
 
-module dff_struct(D, Clk, Reset, Q);
-	input D, Clk, Reset;
+module dff_struct(D, Clk, Reset, CurInput, Set, Q);
+	input D, Clk, Set, Reset;
 	output reg Q;
-	
-    always @(posedge Clk or posedge Reset)
+	// do we need to have D in @ also?
+    always @(posedge Clk or posedge Reset or posedge Set)
         begin
             if(Reset)
                 Q <= 1'b0;
+            else if (Set)
+                Q <= D;
             else
                 Q <= D;
         end

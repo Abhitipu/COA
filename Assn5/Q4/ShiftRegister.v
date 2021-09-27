@@ -33,7 +33,7 @@ module ShiftLoadReg32_struct(
     wire [0:31] wint;
 	// sel = 1 => set load
     multiplexer_struct mux[31:0] (sel, load, w[1:32], wint);
-    dff_struct dff[31:0] (wint, clk, reset, w[0:31]);
+    dff_struct dff[31:0] (wint, clk, reset, sel, w[0:31]);
 
     assign state[31:0] = {w[0:31]};
 
