@@ -23,7 +23,7 @@ Abhinandan De (19CS10069)
 //     );
 
 module UnsignedCmp_tb;
-    reg reset, op, clk;
+    reg reset, op, clk, sel;
     reg[31:0] A, B;
     wire L, E, G;
 
@@ -32,29 +32,39 @@ module UnsignedCmp_tb;
     initial A = 0;
     initial B = 0;
     initial op = 1'b0;
+    initial sel = 0;
     always #5 clk = ~clk;
 
-    UnsignedCmp unsigned_cmp(reset, A, B, op, clk, L, E, G);
+    UnsignedCmp unsigned_cmp(reset, A, B, op, sel, clk, L, E, G);
 
     initial begin
         $dumpfile("UnsignedCmp_tb.vcd");
         $dumpvars(0, unsigned_cmp);
 
         #10;
+        
         reset = 0; #10;
-        op = 1'b1; A = 45; B = 34; #10;
+        op = 1'b0;sel=1; A = 76521123; B = 128777; #10;sel=0;
         op = 1'b0; #320;
+        op=1'b1; #30;
 
         reset = 1; #10;
         reset = 0; #10;
-        op = 1'b1; A = 23; B = 34; #10;
+        op = 1'b1;sel=1; A = 187264; B = 34132312; #10;sel=0;
         op = 1'b0; #320;
+        op=1'b1; #30;
 
-        // reset = 1; #10;
-        // reset = 0; #10;
-        // op = 1'b0; A = 33; B = 33; #320;
-        // op = 1'b1; #10;
+        reset = 1; #10;
+        reset = 0; #10;
+        op = 1'b1;sel=1; A = 3323445; B = 3323445; #10;sel=0;
+        op = 1'b0; #320;
+        op=1'b1; #30;
 
+        reset = 1; #10;
+        reset = 0; #10;
+        op = 1'b1;sel=1; A = 1; B = 0; #10;sel=0;
+        op = 1'b0; #320;
+        op=1'b1; #30;
         $display("end of test.");
         $finish;
     end
