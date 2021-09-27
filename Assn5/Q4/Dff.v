@@ -15,7 +15,7 @@ Abhinandan De (19CS10069)
 `define _DFF_V_
 
 module dff_struct(D, Clk, Reset, CurInput, Set, Q);
-	input D, Clk, Set, Reset;
+	input D, Clk, CurInput, Set, Reset;
 	output reg Q;
 	// do we need to have D in @ also?
     always @(posedge Clk or posedge Reset or posedge Set)
@@ -23,7 +23,7 @@ module dff_struct(D, Clk, Reset, CurInput, Set, Q);
             if(Reset)
                 Q <= 1'b0;
             else if (Set)
-                Q <= D;
+                Q <= CurInput;
             else
                 Q <= D;
         end

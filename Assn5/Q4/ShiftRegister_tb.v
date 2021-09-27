@@ -34,13 +34,12 @@ module ShiftLoadReg_tb;
     initial begin
         $dumpfile("ShiftRegister_tb.vcd");
         $dumpvars(0, sflr);
+
         reset = 1; load=1; shiftin=1'b0; #18;
         reset=0; #1;
         sel = 1; #20;
         load = 2; #20;
         sel = 0; #640;
-
-        
 
         $display("end of test.");
         $finish;

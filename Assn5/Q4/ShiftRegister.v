@@ -16,7 +16,7 @@ Abhinandan De (19CS10069)
 `include "Dff.v"
 `include "Multiplexer.v"
 
-// module dff_struct(D, Clk, Reset, Q);
+// module dff_struct(D, Clk, Reset, CurInput, Set, Q);
 // module multiplexer_struct(x , u , v , z);
 // z = xu + x_bar.v
 
@@ -33,7 +33,7 @@ module ShiftLoadReg32_struct(
     wire [0:31] wint;
 	// sel = 1 => set load
     multiplexer_struct mux[31:0] (sel, load, w[1:32], wint);
-    dff_struct dff[31:0] (wint, clk, reset, sel, w[0:31]);
+    dff_struct dff[31:0] (wint, clk, reset, load, sel, w[0:31]);
 
     assign state[31:0] = {w[0:31]};
 
