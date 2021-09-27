@@ -26,6 +26,7 @@ module ShiftLoadReg_tb;
     reg shiftin, sel, reset, clk;
     wire[31:0] state;
     initial clk = 0;
+    initial sel = 0;
     always #5 clk = ~clk;
 
     ShiftLoadReg32_struct sflr(load, shiftin, sel, reset, clk, state);
@@ -33,8 +34,10 @@ module ShiftLoadReg_tb;
     initial begin
         $dumpfile("ShiftRegister_tb.vcd");
         $dumpvars(0, sflr);
-        reset = 1; shiftin=1'b0; #10;
-        sel = 1; load=5555555; reset=0; #20;
+        reset = 1; load=1; shiftin=1'b0; #18;
+        reset=0; #1;
+        sel = 1; #20;
+        load = 2; #20;
         sel = 0; #640;
 
         
