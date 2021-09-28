@@ -1,4 +1,3 @@
-
 /*
 Assignment 5
 Problem no: 4
@@ -9,15 +8,12 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns // <time unit> / <time precision>
-
-`ifndef _DFF_V_
-`define _DFF_V_
+`timescale 1ns/1ps // <time unit> / <time precision>
 
 module dff_struct(D, Clk, Reset, CurInput, Set, Q);
 	input D, Clk, CurInput, Set, Reset;
 	output reg Q;
-	// do we need to have D in @ also?
+	
     always @(posedge Clk or posedge Reset or posedge Set)
         begin
             if(Reset)
@@ -28,5 +24,3 @@ module dff_struct(D, Clk, Reset, CurInput, Set, Q);
                 Q <= D;
         end
 endmodule
-
-`endif // _DFF_v_

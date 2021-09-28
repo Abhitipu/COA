@@ -8,12 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns
-
-`ifndef _UnsignedCmp_v_
-`define _UnsignedCmp_v_
-`include "Dff.v"
-`include "ShiftRegister.v"
+`timescale 1ns/1ps
 
 module UnsignedCmp(
         input reset,
@@ -29,13 +24,12 @@ module UnsignedCmp(
 
     wire[1:0] ps, ns;
     wire[31:0] curA, curB;
-    // does sel take in op ? check this logic?
+	 
     // sel = 1 A will load, Sel = 0; 
     ShiftLoadReg32_struct slr1(A, 1'b0, sel, reset, clk, curA);
     ShiftLoadReg32_struct slr2(B, 1'b0, sel, reset, clk, curB); 
 
-    // module dff_struct(D, Clk, Reset, CurInput, Set, Q);
-    dff_struct dff[1:0] (ns, clk, reset, 1'b0, 1'b0, ps);  // should we use the modified dff?
+    dff_struct dff[1:0] (ns, clk, reset, 1'b0, 1'b0, ps);
 
     assign ns[1] = ps[1] | (~ps[0]) & (~op) & (~curA[31]) & (curB[31]);
     assign ns[0] = ps[0] | (curA[31] & (~curB[31]) & (~op) & (~ps[1]));
@@ -59,4 +53,3 @@ endmodule
 // L = PS1, G = PS1'PS0,  E = PS1' PS0'
 // sel = 0 -> shift , 1 -> Parallel load into register
 // op = 0-> we are currently shifting , 1-> we have completed 32 cycles and preserve the output
-`endif 
