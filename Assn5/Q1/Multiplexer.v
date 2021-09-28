@@ -8,10 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns // <time unit> / <time precision>
-
-`ifndef _MUX_v_
-`define _MUX_v_
+`timescale 1ns/1ps // <time unit> / <time precision>
 
 module multiplexer_struct(x , u , v , z);
 	input x,u,v;
@@ -20,5 +17,3 @@ module multiplexer_struct(x , u , v , z);
 	// z = xu + x_bar.v
 	assign z = x ? u: v;
 endmodule
-
-`endif // _MUX_v_

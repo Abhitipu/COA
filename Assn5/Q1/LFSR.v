@@ -1,7 +1,6 @@
-
 /*
-Assignment 1
-Problem no: 1d
+Assignment 5
+Problem no: 1
 Semester: 5th
 Group: 28
 Members: 
@@ -9,16 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns // <time unit> / <time precision>
-
-`ifndef _LFSR_V_
-`define _LFSR_V_
-`include "Dff.v"
-`include "Multiplexer.v"
-
-// module dff_struct(D, Clk, Reset, Q);
-// module multiplexer_struct(x , u , v , z);
-// z = xu + x_bar.v
+`timescale 1ns/1ps // <time unit> / <time precision>
 
 module lfsr_struct(
         input[3:0] seed,
@@ -38,5 +28,3 @@ module lfsr_struct(
     xor x1(w[0], w[4], w[3]);
 
 endmodule
-
-`endif // _MUX_v_

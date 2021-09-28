@@ -1,4 +1,3 @@
-
 /*
 Assignment 5
 Problem no: 1
@@ -9,40 +8,49 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns
-`include "LFSR.v"
-// lfsr_struct(
-//         input[3:0] seed,
-//         input sel, 
-//         input reset, 
-//         input clk,
-//         output[3:0] state
-//     );
+`timescale 1ns / 1ps
 
 module LFSR_tb;
-    reg[3:0] seed;
-    reg sel, reset, clk;
-    wire[3:0] state;
-    initial clk = 0;
-    always #5 clk = ~clk;
 
-    lfsr_struct lfsr(seed, sel, reset, clk, state);
+	// Inputs
+	reg [3:0] seed;
+	reg sel;
+	reg reset;
+	reg clk;
 
-    initial begin
-        $dumpfile("LFSR_tb.vcd");
-        $dumpvars(0, lfsr);
+	// Outputs
+	wire [3:0] state;
 
-        reset = 1; #10;
-        sel = 1; seed=4'b1111; reset=0; #10;
-        sel = 0; #160;
+	// Instantiate the Unit Under Test (UUT)
+	lfsr_struct uut (
+		.seed(seed), 
+		.sel(sel), 
+		.reset(reset), 
+		.clk(clk), 
+		.state(state)
+	);
+	
+	always #5 clk = ~clk;
 
-        sel = 1; seed=4'b1010; reset=0; #10;
-        sel = 0; #160;
+	initial begin
+		// Initialize Inputs
+		seed = 0;
+		sel = 0;
+		reset = 0;
+		clk = 0;
+		
+		#10
+        
+		reset = 1; #10;
+		sel = 1; seed=4'b1111; reset=0; #10;
+		sel = 0; #160;
 
-        sel = 1; seed=4'b1001; reset=0; #10;
-        sel = 0; #160;
+		sel = 1; seed=4'b1010; reset=0; #10;
+		sel = 0; #160;
 
-        $display("end of test.");
-        $finish;
-    end
+		sel = 1; seed=4'b1001; reset=0; #10;
+		sel = 0; #160;
+	end
+      
 endmodule
+
