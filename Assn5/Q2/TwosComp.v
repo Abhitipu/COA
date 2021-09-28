@@ -8,13 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns
-
-`ifndef _TwosComp_v_
-`define _TwosComp_v_
-`include "Dff.v"
-
-// module dff_struct(D, Clk, Reset, Q);
+`timescale 1ns/1ps
 
 module TwosComp(
         input reset,
@@ -28,9 +22,7 @@ module TwosComp(
     dff_struct dff(ns, clk, reset, ps);  // to store the state
     always @(*) res = ps ^ bit; // output logic
 
-endmodule // PG_Generator
-
-`endif // _PGGenerator_v_
+endmodule 
 
 // state  encoding description
 // A        0           Have not seen 1

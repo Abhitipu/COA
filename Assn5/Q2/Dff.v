@@ -1,7 +1,6 @@
-
 /*
 Assignment 5
-Problem no: 1
+Problem no: 2
 Semester: 5th
 Group: 28
 Members: 
@@ -9,10 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns // <time unit> / <time precision>
-
-`ifndef _DFF_V_
-`define _DFF_V_
+`timescale 1ns/1ps // <time unit> / <time precision>
 
 module dff_struct(D, Clk, Reset, Q);
 	input D, Clk, Reset;
@@ -26,5 +22,3 @@ module dff_struct(D, Clk, Reset, Q);
                 Q <= D;
         end
 endmodule
-
-`endif // _MUX_v_
