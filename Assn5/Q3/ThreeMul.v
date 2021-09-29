@@ -8,7 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns
+`timescale 1ns/1ps
 
 
 
