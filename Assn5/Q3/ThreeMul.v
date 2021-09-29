@@ -17,15 +17,18 @@ module ThreeMul(
         output reg res
     );
     
-    wire[1:0] ps, ns;
-
-    assign ns[1] = ps[1] & bit | (~bit) & (~ps[1]) & ps[0];
-    assign ns[0] = ps[1] | (~ps[0])&bit;
+    wire[1:0] ps;
+	reg [1:0] ns;
 
     dff_struct dff0(ns[0], clk, reset, ps[0]);  
     dff_struct dff1(ns[1], clk, reset, ps[1]); 
 
-    always @(*) res = (~ps[1])&(~ps[0])&(~bit) | (~ps[1])&ps[0]&bit;
+    always @(*)
+	begin
+		res <= (~ps[1])&(~ps[0])&(~bit) | (~ps[1])&ps[0]&bit;
+		ns[1] <= (ps[1] & bit | (~bit) & (~ps[1]) & ps[0]);
+		ns[0] <= (ps[1] | (~ps[0])&bit);
+	end
 
 endmodule
 
