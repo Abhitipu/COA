@@ -37,41 +37,51 @@ module UnsignedCmp_tb;
 		.G(G)
 	);
 	
-	always #5 clk = ~clk;
+	always #2 clk = ~clk;
 
 	initial begin
 		// Initialize Inputs
-		reset = 0;
+		reset = 1;
 		A = 0;
 		B = 0;
 		op = 0;
 		sel = 0;
-		clk = 0;
+		clk = 1;
 
-		#10;
+		#4;
         
-		reset = 0; #10;
-		op = 1'b0;sel=1; A = 76521123; B = 128777; #10;sel=0;
-		op = 1'b0; #320;
-		op=1'b1; #30;
+		reset = 0; op = 1'b0; sel=1; A = 76521123; B = 128777; #4
+		// turn off reset
+		// set op to 0 -> feed input
+		// set sel to 1 -> load mode
+		// supply the 32 bit inputs
+		
+		sel=0; #128;
+		// set sel to 0 -> shift mode
+		
+		op=1'b1; #8;
+		// set op to 1 -> for checking result
 
-		reset = 1; #10;
-		reset = 0; #10;
-		op = 1'b1;sel=1; A = 187264; B = 34132312; #10;sel=0;
-		op = 1'b0; #320;
-		op=1'b1; #30;
+		reset = 1; #4;
+		// reset m/c
+		
+		// repeat
+		reset = 0; op = 1'b0; sel=1; A = 187264; B = 34132312; #4;
+		sel=0; #128;
+		op=1'b1; #8;
 
-		reset = 1; #10;
-		reset = 0; #10;
-		op = 1'b1;sel=1; A = 3323445; B = 3323445; #10;sel=0;
-		op = 1'b0; #320;
-		op=1'b1; #30;
+		reset = 1; #4;
+		reset = 0; op = 1'b0; sel=1; A = 3323445; B = 3323445; #4;
+		sel=0; #128;
+		op=1'b1; #8;
 
-		reset = 1; #10;
-		reset = 0; #10;
-		op = 1'b1;sel=1; A = 1; B = 0; #10;sel=0;
-		op = 1'b0; #320;
-		op=1'b1; #30;
+		reset = 1; #4;
+		reset = 0; op = 1'b0; sel=1; A = 1; B = 0; #4;
+		sel=0; #128;
+		op=1'b1; #8;
+		
+		reset = 1; #4;
+		$finish;
 
 	end
       
