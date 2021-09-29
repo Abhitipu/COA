@@ -28,9 +28,9 @@ module TwosComp(
     dff_struct dff(ns, clk, reset, ps);  // to store the state
     always @(*) res = ps ^ bit; // output logic
 
-endmodule // TwosComplement
+endmodule // PG_Generator
 
-`endif // _TwosComp_v_
+`endif // _PGGenerator_v_
 
 // state  encoding description
 // A        0           Have not seen 1
