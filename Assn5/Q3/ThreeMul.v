@@ -36,7 +36,6 @@ module ThreeMul(
 
 endmodule
 
-
 // state  encoding description
 //          s1 s0  
 // Q0        0 0           0 mod 3
