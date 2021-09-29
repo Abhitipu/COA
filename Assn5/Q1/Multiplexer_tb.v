@@ -1,6 +1,6 @@
 /*
-Assignment 1
-Problem no: 1d
+Assignment 5
+Problem no: 1
 Semester: 5th
 Group: 28
 Members: 
@@ -8,23 +8,42 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns
-`include "Multiplexer.v"
+`timescale 1ns/1ps
 
 module Multiplexer_tb;
-    reg x,u,v;
-    wire z;
 
-    multiplexer_struct mux(x,u,v,z);
+	// Inputs
+	reg x;
+	reg u;
+	reg v;
 
-    initial begin
-        $dumpfile("Multiplexer_tb.vcd");
-        $dumpvars(0,Multiplexer_tb);
+	// Outputs
+	wire z;
 
-        x=1;u=0;v=0;#20;
-        x=1;u=1;v=0;#20;
-        x=1;u=0;v=1;#20;
-        x=0;#20;
-        $display("end of test.");
-    end
+	// Instantiate the Unit Under Test (UUT)
+	multiplexer_struct uut (
+		.x(x), 
+		.u(u), 
+		.v(v), 
+		.z(z)
+	);
+
+	initial begin
+		// Initialize Inputs
+		x = 0;
+		u = 0;
+		v = 0;
+		
+		#10
+		
+		x=1;u=0;v=0;#20;
+		x=1;u=1;v=0;#20;
+		x=1;u=0;v=1;#20;
+		x=0;#20;
+		
+		$finish;
+
+	end
+      
 endmodule
+

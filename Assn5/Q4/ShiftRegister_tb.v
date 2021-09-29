@@ -1,4 +1,3 @@
-
 /*
 Assignment 5
 Problem no: 4
@@ -9,39 +8,51 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns
-`include "ShiftRegister.v"
+`timescale 1ns / 1ps
 
-// ShiftLoadReg32_struct(
-//         input[31:0] load,
-//         input shiftin,
-//         input sel, 
-//         input reset, 
-//         input clk,
-//         output[31:0] state
-//     );
+module ShiftRegister_tb;
 
-module ShiftLoadReg_tb;
-    reg[31:0] load;
-    reg shiftin, sel, reset, clk;
-    wire[31:0] state;
-    initial clk = 0;
-    initial sel = 0;
-    always #5 clk = ~clk;
+	// Inputs
+	reg [31:0] load;
+	reg shiftin;
+	reg sel;
+	reg reset;
+	reg clk;
 
-    ShiftLoadReg32_struct sflr(load, shiftin, sel, reset, clk, state);
+	// Outputs
+	wire [31:0] state;
 
-    initial begin
-        $dumpfile("ShiftRegister_tb.vcd");
-        $dumpvars(0, sflr);
+	// Instantiate the Unit Under Test (UUT)
+	ShiftLoadReg32_struct uut (
+		.load(load), 
+		.shiftin(shiftin), 
+		.sel(sel), 
+		.reset(reset), 
+		.clk(clk), 
+		.state(state)
+	);
+	
+	always #5 clk = ~clk;
 
-        reset = 1; load=1; shiftin=1'b0; #18;
-        reset=0; #1;
-        sel = 1; #20;
-        load = 2; #20;
-        sel = 0; #640;
+	initial begin
+		// Initialize Inputs
+		load = 0;
+		shiftin = 0;
+		sel = 0;
+		reset = 0;
+		clk = 0;
 
-        $display("end of test.");
-        $finish;
-    end
+		#10;
+		
+		reset = 1; load=1; shiftin=1'b0; #18;
+		reset=0; #1;
+		sel = 1; #20;
+		load = 2; #20;
+		sel = 0; #640;     
+		
+		$finish;
+
+	end
+      
 endmodule
+

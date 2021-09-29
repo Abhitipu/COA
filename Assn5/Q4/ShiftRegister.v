@@ -1,4 +1,3 @@
-
 /*
 Assignment 5
 Problem no: 4
@@ -9,16 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns // <time unit> / <time precision>
-
-`ifndef _SHIFTREG_V_
-`define _SHIFTREG_V_
-`include "Dff.v"
-`include "Multiplexer.v"
-
-// module dff_struct(D, Clk, Reset, CurInput, Set, Q);
-// module multiplexer_struct(x , u , v , z);
-// z = xu + x_bar.v
+`timescale 1ns/1ps // <time unit> / <time precision>
 
 module ShiftLoadReg32_struct(
         input[31:0] load,
@@ -40,7 +30,3 @@ module ShiftLoadReg32_struct(
     assign w[32] = shiftin;
 
 endmodule
-
-
-
-`endif // _SHIFTREG_V_
