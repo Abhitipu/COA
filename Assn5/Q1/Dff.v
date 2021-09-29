@@ -14,6 +14,7 @@ module dff_struct(D, Clk, Reset, Q);
 	input D, Clk, Reset;
 	output reg Q;
 	
+    // data transfer at positive edge
     always @(posedge Clk or posedge Reset)
         begin
             if(Reset)

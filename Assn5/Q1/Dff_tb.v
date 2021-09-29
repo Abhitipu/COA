@@ -38,6 +38,7 @@ module Dff_tb;
 
 		#10;
         
+		// feed in inputs and check if reset works
 		D=0;Reset=1;#4;
 		D=1;Reset=0;#3;
 		D=1;Reset=0;#20;

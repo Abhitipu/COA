@@ -20,7 +20,7 @@ module lfsr_struct(
 	
     wire[0:4] w;
     wire [0:3] wint;
-	// sel = 1 => set seed
+	// sel = 1 => load mode
     multiplexer_struct mux[3:0] (sel, seed, w[0:3], wint);
     dff_struct dff[3:0] (wint, clk, reset, w[1:4]);
 
