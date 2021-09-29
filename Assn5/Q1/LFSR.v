@@ -39,4 +39,4 @@ module lfsr_struct(
 
 endmodule
 
-`endif // _MUX_v_
+`endif // _LFSR_V_
