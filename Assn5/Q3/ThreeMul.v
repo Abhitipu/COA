@@ -8,13 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns
-
-`ifndef _ThreeMul_v_
-`define _ThreeMul_v_
-`include "Dff.v"
-
-// module dff_struct(D, Clk, Reset, Q);
+`timescale 1ns/1ps
 
 module ThreeMul(
         input reset,
@@ -34,8 +28,6 @@ module ThreeMul(
     always @(*) res = (~ps[1])&(~ps[0])&(~bit) | (~ps[1])&ps[0]&bit;
 
 endmodule
-
-`endif 
 
 // state  encoding description
 //          s1 s0  
