@@ -31,16 +31,17 @@ module ThreeMul_tb;
 
 	initial begin
 		// Initialize Inputs
-		reset = 0;
 		bit = 0;
-		clk = 0;
+		// the input bit to be fed (from MSB)
+		clk = 1;
 
-		// Wait 100 ns for global reset to finish
-		#10;
-        
-		// Add stimulus here
 		reset = 1; #10;
+		// reset m/c
+		
 		reset = 0; bit = 1; #10;
+		// turn off reset and feed in a bit
+		
+		// keep feeding
 		bit = 1; #10;
 		bit = 0; #10;
 		bit = 0; #10;	
@@ -52,7 +53,8 @@ module ThreeMul_tb;
 		bit = 0; #10;
 		bit = 0; #10;
 		bit = 1; #10;
-		bit = 1; #20;
+		bit = 1; #10;
+		bit = 1; #10;
 		bit = 0; #20;
 		
 		$finish;
