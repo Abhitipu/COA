@@ -32,13 +32,14 @@ module TwosComp_tb;
 
 	initial begin
 		// Initialize Inputs
-		reset = 0;
+		reset = 1;
 		bit = 0;
+		// the input bit to be fed from LSB
 		clk = 0;
 		
 		#10;
 		
-		reset = 1; bit = 0;#10;
+		// turn off reset and start feeding bits
 		reset = 0; bit = 0; #10;
 		bit = 0; #10;
 		bit = 0; #10;
