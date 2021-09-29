@@ -17,12 +17,16 @@ module TwosComp(
         output reg res
     );
     
-    wire ps, ns;
-    assign ns = bit | ps; // next state logic
+    wire ps;
+    reg ns;
     dff_struct dff(ns, clk, reset, ps);  // to store the state
-    always @(*) res = ps ^ bit; // output logic
+    always @(*)
+    begin
+        res <= ps ^ bit; // output logic
+        ns <= bit | ps; // next state logic
+    end 
 
-endmodule 
+endmodule // TwosComplement
 
 // state  encoding description
 // A        0           Have not seen 1

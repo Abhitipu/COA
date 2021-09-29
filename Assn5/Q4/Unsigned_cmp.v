@@ -22,7 +22,8 @@ module UnsignedCmp(
         output reg G
     );
 
-    wire[1:0] ps, ns;
+    wire[1:0] ps;
+    reg[1:0] ns;
     wire[31:0] curA, curB;
 	 
     // sel = 1 A will load, Sel = 0; 
@@ -31,12 +32,13 @@ module UnsignedCmp(
 
     dff_struct dff[1:0] (ns, clk, reset, 1'b0, 1'b0, ps);
 
-    assign ns[1] = ps[1] | (~ps[0]) & (~op) & (~curA[31]) & (curB[31]);
-    assign ns[0] = ps[0] | (curA[31] & (~curB[31]) & (~op) & (~ps[1]));
-    
-    always @(*) L = ps[1];
-    always @(*) G = (~ps[1]) & (ps[0]);
-    always @(*) E = (~ps[1]) & (~ps[0]);
+    always @(*) begin
+        ns[1] <= ps[1] | (~ps[0]) & (~op) & (~curA[31]) & (curB[31]);
+        ns[0] <= ps[0] | (curA[31] & (~curB[31]) & (~op) & (~ps[1]));
+        L <= ps[1];
+        G <= (~ps[1]) & (ps[0]);
+        E <= (~ps[1]) & (~ps[0]);
+    end
 
 endmodule
 // state  encoding description

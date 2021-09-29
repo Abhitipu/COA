@@ -8,54 +8,66 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns / 1ps
+`timescale 1ns/1ps
 
 module TwosComp_tb;
+    reg bit, reset, clk;
+    wire res;
 
-	// Inputs
-	reg reset;
-	reg bit;
-	reg clk;
+    initial clk = 1;
+    initial bit = 0;
+    initial reset = 1;
+    always #5 clk = ~clk;
 
-	// Outputs
-	wire res;
+    TwosComp twoscomp(reset, bit, clk, res);
 
-	// Instantiate the Unit Under Test (UUT)
-	TwosComp uut (
-		.reset(reset), 
-		.bit(bit), 
-		.clk(clk), 
-		.res(res)
-	);
-	
-	always #5 clk = ~clk;
+    initial begin
 
-	initial begin
-		// Initialize Inputs
-		reset = 1;
-		bit = 0;
-		// the input bit to be fed from LSB
-		clk = 0;
-		
-		#10;
-		
-		// turn off reset and start feeding bits
-		reset = 0; bit = 0; #10;
-		bit = 0; #10;
-		bit = 0; #10;
-		bit = 0; #10;
-		bit = 1; #10;
-		bit = 1; #10;
-		bit = 0; #10;
-		bit = 1; #10;
-		bit = 1; #10;
-		bit = 0; #10;
-		bit = 0; #10;
-		bit = 1; #10;
-		bit = 1; #20;
-        
-		$finish;
-	end
-      
+        reset = 1; bit = 0;#10;
+        reset = 0; bit = 0; #10;
+        bit = 0; #10;
+        bit = 0; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #10;
+        bit = 0; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #20;
+		  
+        reset = 1; bit = 0;#10;
+        reset = 0; bit = 0; #10;
+        bit = 0; #10;
+        bit = 0; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #10;
+        bit = 0; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #20;
+
+        reset = 1; bit = 0;#10;
+        reset = 0; bit = 0; #10;
+        bit = 1; #10;
+        bit = 0; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #10;
+        bit = 0; #10;
+        bit = 0; #10;
+        bit = 1; #10;
+        bit = 1; #20;
+
+        $finish;
+    end
 endmodule
-
