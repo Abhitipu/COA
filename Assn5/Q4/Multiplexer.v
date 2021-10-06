@@ -8,7 +8,7 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns // <time unit> / <time precision>
+`timescale 1ns/1ps // <time unit> / <time precision>
 
 module multiplexer_struct(x , u , v , z);
 	input x,u,v;
