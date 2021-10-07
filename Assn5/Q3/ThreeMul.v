@@ -10,6 +10,10 @@ Abhinandan De (19CS10069)
 
 `timescale 1ns/1ps
 
+
+
+// module dff_struct(D, Clk, Reset, Q);
+
 module ThreeMul(
         input reset,
         input bit,
