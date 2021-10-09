@@ -14,9 +14,9 @@ module shift_register(
     input mode,
     input reset,
     input clk,
-    output reg serialOut
+    output reg serialOut,
+    output reg[7:0] state
 );
-    reg [7:0] state;
     always @(posedge clk or posedge reset) begin
         if(reset)
             state <= 8'b00000000;

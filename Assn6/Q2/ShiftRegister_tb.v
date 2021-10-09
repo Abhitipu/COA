@@ -15,7 +15,8 @@ Abhinandan De (19CS10069)
 //     input mode,
 //     input reset,
 //     input clk,
-//     output reg serialOut
+//     output reg serialOut,
+//     output reg[7:0] state
 // );
 module ShiftRegister_tb;
     // inputs
@@ -27,14 +28,15 @@ module ShiftRegister_tb;
 
     // Outputs
     wire serialOut;
-
+    wire[7:0] parallelOut;
     shift_register uut(
         .parallelIn(load),
         .serialIn(shiftin),
         .mode(mode),
         .reset(reset),
         .clk(clk),
-        .serialOut(serialOut)
+        .serialOut(serialOut),
+        .state(parallelOut)
     );
     always #5 clk = ~clk;
 
