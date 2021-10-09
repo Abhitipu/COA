@@ -23,6 +23,7 @@ module ShiftRegister_tb;
     reg [7:0] load;
     reg shiftin;
     reg mode;
+    reg dir;
     reg reset;
     reg clk;
 
@@ -33,6 +34,7 @@ module ShiftRegister_tb;
         .parallelIn(load),
         .serialIn(shiftin),
         .mode(mode),
+        .dir(dir),
         .reset(reset),
         .clk(clk),
         .serialOut(serialOut),
@@ -48,6 +50,7 @@ module ShiftRegister_tb;
         mode = 0;
         shiftin = 0;
         clk = 0;
+        dir = 0;
         #10;
 
         reset = 0;
@@ -62,6 +65,7 @@ module ShiftRegister_tb;
         reset = 0;
         load = 28;
         mode = 1;
+        dir = 1;
         #10;
 
         mode = 0;

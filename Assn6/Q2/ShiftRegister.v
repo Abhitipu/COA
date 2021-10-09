@@ -12,6 +12,7 @@ module shift_register(
     input[7:0] parallelIn,
     input serialIn,
     input mode,
+    input dir,
     input reset,
     input clk,
     output reg serialOut,
@@ -22,8 +23,13 @@ module shift_register(
             state <= 8'b00000000;
         else if(mode)
             state <= parallelIn;
+        else if(dir)
+            state <= {state[6:0], serialIn};
         else
-            state <= state<<1;
-        serialOut <= state[7];
+            state <= {serialIn, state[7:1]};
+        if (dir)
+            serialOut <= state[7];
+        else
+            serialOut <= state[0];
     end
 endmodule
