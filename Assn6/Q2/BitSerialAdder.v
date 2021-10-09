@@ -24,12 +24,13 @@ module BitSerialAdder(
     shift_register Ain(.parallelIn(A), .serialIn(1'b 0) , .mode(mode), .dir(1'b0), .reset(reset), .clk(clk), .serialOut(Abit));
     shift_register Bin(.parallelIn(B), .serialIn(1'b 0) , .mode(mode), .dir(1'b0), .reset(reset), .clk(clk), .serialOut(Bbit));
     
-    shift_register Sout(8'b00000000, Sbit, mode,1'b0, reset, clk, CoutWire, SumWire);
+    shift_register Sout(.parallelIn(8'b00000000), .serialIn(Sbit), .mode(mode), .dir(1'b0), .reset(reset), .clk(clk), .serialOut(), .state(SumWire));
+    // shift_register Sout(8'b00000000, Sbit, mode,1'b0, reset, clk, CoutWire, SumWire); // right shift, here
     FA_Struct fa1(Abit, Bbit, Cbit, cobit, Sbit);
     dff_struct dff1(cobit, clk, reset, Cbit);
     always @(*) begin
         Sum <= SumWire;
-        Cout <=CoutWire;
+        Cout <=Sbit;
     end
 
 

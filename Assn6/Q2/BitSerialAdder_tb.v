@@ -83,6 +83,56 @@ module BitSerialAdder_tb;
         mode = 0;
         #90;
 
+        a = 205;
+        b = 67;
+        reset = 1;
+        #15;
+        reset = 0;
+        mode = 1;
+        #10;
+        mode = 0;
+        #90;
+
+        a = 205;
+        b = 159;
+        reset = 1;
+        #15;
+        reset = 0;
+        mode = 1;
+        #10;
+        mode = 0;
+        #90;
+
+        a = -69;
+        b = -125;
+        reset = 1;
+        #15;
+        reset = 0;
+        mode = 1;
+        #10;
+        mode = 0;
+        #90;
+
+        a = -15;
+        b = -30;
+        reset = 1;
+        #15;
+        reset = 0;
+        mode = 1;
+        #10;
+        mode = 0;
+        #90;
+
+        a = 50;
+        b = -100;
+        reset = 1;
+        #15;
+        reset = 0;
+        mode = 1;
+        #10;
+        mode = 0;
+        #90;
+
         $display("end of test.");
         $finish;
     end
