@@ -1,6 +1,6 @@
 /*
-Assignment 1
-Problem no: 1d
+Assignment 6
+Problem no: 1
 Semester: 5th
 Group: 28
 Members: 
@@ -8,14 +8,14 @@ Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
 
-`timescale 1ns/1ns
+`timescale 1ns/1ps
 `include "Multiplexer.v"
 
 module Multiplexer_tb;
     reg x,u,v;
     wire z;
 
-    multiplexer_struct mux(x,u,v,z);
+    Multiplexer mux(x,u,v,z);
 
     initial begin
         $dumpfile("Multiplexer_tb.vcd");
