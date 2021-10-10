@@ -68,7 +68,7 @@ module BoothMulShiftReg_tb;
         #80;
         
         reset = 1;
-        A = -128;
+        A = -125;
         B = 127;
         #15;
         reset = 0;
@@ -78,7 +78,7 @@ module BoothMulShiftReg_tb;
         #80;
 
         reset = 1;
-        A = -128;
+        A = -114;
         B = 0;
         #15;
         reset = 0;
