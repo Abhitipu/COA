@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 /*
 Assignment 6
 Problem no: 1

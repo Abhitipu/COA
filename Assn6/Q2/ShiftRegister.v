@@ -18,18 +18,19 @@ module shift_register(
     output reg serialOut,
     output reg[7:0] state
 );
+// A shift register with sync parallel/serial load, async reset, bi directional shifting and parallel/serial read
     always @(posedge clk or posedge reset) begin
-        if(reset)
+        if(reset)                                   // reset
             state <= 8'b00000000;
-        else if(mode)
+        else if(mode)                               // mode == 1, load
             state <= parallelIn;
-        else if(dir)
+        else if(dir)                                // dir == 1, left shift
             state <= {state[6:0], serialIn};
-        else
+        else                                        // dir == 0, right shift
             state <= {serialIn, state[7:1]};
-        if (dir)
+        if (dir)                                    // dir == 1, serial out is left most bit
             serialOut <= state[7];
         else
-            serialOut <= state[0];
+            serialOut <= state[0];                  // dir == 0, serial out is right most bit
     end
 endmodule
