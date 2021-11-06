@@ -22,12 +22,12 @@ module RightShiftArithmetic (
     always @(*) begin
         if(B > 31)
             begin
-                RightShiftedArithmetic_A <= {32{A[31]}};
+                RightShiftedArithmetic_A = {32{A[31]}};
             end
         else
             begin
-                shamt <= B[4:0];
-                RightShiftedArithmetic_A <= BarrelOut;
+                shamt = B[4:0];
+                RightShiftedArithmetic_A = BarrelOut;
             end
     end
 	 

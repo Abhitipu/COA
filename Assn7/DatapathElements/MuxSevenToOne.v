@@ -20,7 +20,7 @@ module Mux7To1 (
             4: o = i_e;
             5: o = i_f;
             6: o = i_g;
-            default: o <= i_a;
+            default: o = i_a;
         endcase
     end
 endmodule

@@ -12,7 +12,7 @@ module AluState (
             input clk,
             output reg carryFlag
             );       
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         carryFlag <= carryin;
     end
 endmodule
