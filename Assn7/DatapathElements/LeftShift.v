@@ -21,12 +21,12 @@ module LeftShift (
     always @(*) begin
         if( B > 31)
             begin
-                LeftShifted_A <= 0;
+                LeftShifted_A = 0;
             end
         else
             begin
-                shamt <= B[4:0];
-                LeftShifted_A <= BarrelOut;
+                shamt = B[4:0];
+                LeftShifted_A = BarrelOut;
             end
     end
 endmodule
