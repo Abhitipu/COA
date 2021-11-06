@@ -17,7 +17,7 @@ module Mux6To1 (
         input i_d,
         input i_e,
         input i_f,
-        input[3:0] i_sel,
+        input[4:0] i_sel,
         output reg o
     );
 
@@ -33,4 +33,5 @@ module Mux6To1 (
             default: o = i_d;   // anything else
         endcase
     end
-endmodule // _MUX6TO1_
+endmodule 
+`endif // _MUX6TO1_

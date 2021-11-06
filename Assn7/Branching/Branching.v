@@ -7,7 +7,7 @@ Members:
 Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
-`include "FullAdder.v"
+`include "Adder.v"
 `include "MuxSixToOne.v"
 `include "MuxTwoToOne.v"
 
@@ -27,7 +27,8 @@ module branching(
         output [31:0] writeRegData
     );
     // assign o = (i_sel)? i_a : i_b;
-    wire [31:0] w1, w2, w3, w4, w5;
+    wire [31:0] w1, w2, w3;
+    wire w4, w5;
     wire t1, t2;
     
     Mux2To1 branchtype(.i_a(label), .i_b(read_data1), .i_sel(branchSrc), .o(w1));

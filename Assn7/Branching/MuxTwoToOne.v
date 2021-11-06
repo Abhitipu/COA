@@ -19,4 +19,5 @@ module Mux2To1 (
     
     assign o = (i_sel)? i_a : i_b;
 
-endmodule // _MUX2TO1_
+endmodule 
+`endif // _MUX2TO1_
