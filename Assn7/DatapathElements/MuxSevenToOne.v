@@ -1,3 +1,12 @@
+/*
+Assignment 7
+Problem no:5 
+Semester: 5th
+Group: 28
+Members: 
+Aryan Singh (19CS30007)
+Abhinandan De (19CS10069)
+*/
 // make a 7 : 1 mux
 module Mux7To1 (
         input[31:0] i_a,
