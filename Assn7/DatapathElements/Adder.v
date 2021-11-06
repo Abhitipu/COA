@@ -23,4 +23,5 @@ module rca32(A, B, cin, S, cout);
     assign c[0] = cin;
     FA_Struct fa[31:0](A, B, c, {cout, c[31:1]}, S);
 
-endmodule //_ADDER_v_
+endmodule 
+`endif //_ADDER_v_

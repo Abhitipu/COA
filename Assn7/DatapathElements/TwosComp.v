@@ -16,8 +16,8 @@ module TwosComp (
     reg mode = 1;
     reg cin = 0;
 
-    wire[7:0] BXOR;
-    xor u[7:0] (BXOR, mode, B);
+    wire[31:0] BXOR;
+    xor u[31:0] (BXOR, mode, B);
     
     wire cout;
     // Ripple Carry adder and Subtractor, made by mimicking 2s Complement on B

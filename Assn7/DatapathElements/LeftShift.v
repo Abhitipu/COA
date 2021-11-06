@@ -11,13 +11,13 @@ Abhinandan De (19CS10069)
 module LeftShift (
             input[31:0] A,
             input[31:0] B, 
-            output[31:0] LeftShifted_A
+            output reg[31:0] LeftShifted_A
             );
-    reg [4:1] shamt;
-    reg mode = 1;
-    reg cin = 0;
-    reg[31:0] BarrelOut;
-    BarrelShifter b1(.in(A), .shamt(shamt), .dir(1'b1), .feedinbit(1'b0) .out(BarrelOut));
+    reg [4:0] shamt;
+    wire[31:0] BarrelOut;
+	
+    BarrelShifter b1(.in(A), .shamt(shamt), .dir(1'b1), .feedinbit(1'b0), .out(BarrelOut));
+	 
     always @(*) begin
         if( B > 31)
             begin

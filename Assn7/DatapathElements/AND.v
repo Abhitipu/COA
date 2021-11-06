@@ -10,10 +10,12 @@ Abhinandan De (19CS10069)
 
 `ifndef _AND_v_
 `define _AND_v_
-module TwosComp (
+
+module AND(
             input[31:0] A, 
             input[31:0] B,
             output[31:0] And_out
             );
     and u[31:0] (And_out, A, B);
 endmodule //_AND_v_
+`endif // AND_v

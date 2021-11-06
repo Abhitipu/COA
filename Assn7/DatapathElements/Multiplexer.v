@@ -7,6 +7,8 @@ Members:
 Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
+`ifndef _MUX_v_
+`define _MUX_v_
 module Multiplexer(
 		input x,
 		input u,
@@ -17,3 +19,4 @@ module Multiplexer(
 		assign z = x ? u : v;
 
 endmodule
+`endif //_MUX_v_
