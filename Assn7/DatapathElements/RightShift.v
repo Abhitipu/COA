@@ -21,12 +21,12 @@ module RightShift (
     always @(*) begin
         if( B > 31)
             begin
-                RightShifted_A <= 0;
+                RightShifted_A = 0;
             end
         else
             begin
-                shamt <= B[4:0];
-                RightShifted_A <= BarrelOut;
+                shamt = B[4:0];
+                RightShifted_A = BarrelOut;
             end
     end
 endmodule

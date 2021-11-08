@@ -17,10 +17,10 @@ module ALU_control(
 
     always @(*) begin
         case (AluOp)
-            0:  AluControlLine <= 4'b0;
-            1:  AluControlLine <= {FuncCode[3:0]};
-            2:  AluControlLine <= 4'b0001;
-            default: AluControlLine <= 4'b0;
+            0:  AluControlLine = 4'b0;
+            1:  AluControlLine = {FuncCode[3:0]};
+            2:  AluControlLine = 4'b0001;
+            default: AluControlLine = 4'b0;
         endcase
     end
 
