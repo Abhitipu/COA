@@ -7,6 +7,8 @@ Members:
 Aryan Singh (19CS30007)
 Abhinandan De (19CS10069)
 */
+
+
 `ifndef _CONTROL_
 `define _CONTROL_
 module Control(

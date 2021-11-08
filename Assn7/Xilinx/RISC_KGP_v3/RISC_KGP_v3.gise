@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="RISC_KGP_v3.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="RISC_KGP_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="RISC_KGP_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="RISC_KGP_tb_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="RISC_KGP_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="risc_kgp.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="risc_kgp.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="risc_kgp.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="risc_kgp.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="risc_kgp.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="risc_kgp.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="risc_kgp.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="risc_kgp.xst"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="risc_kgp_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1636393219" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1636393219">
+      <status xil_pn:value="SuccessfullyRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393219" xil_pn:in_ck="-6873223069149518733" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1636393219">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ALU.v"/>
+      <outfile xil_pn:name="ALUControl.v"/>
+      <outfile xil_pn:name="AND.v"/>
+      <outfile xil_pn:name="Adder.v"/>
+      <outfile xil_pn:name="AluState.v"/>
+      <outfile xil_pn:name="BarrelShifter.v"/>
+      <outfile xil_pn:name="Branching.v"/>
+      <outfile xil_pn:name="Control.v"/>
+      <outfile xil_pn:name="EqualToZero.v"/>
+      <outfile xil_pn:name="FullAdder.v"/>
+      <outfile xil_pn:name="InstructionMemory.v"/>
+      <outfile xil_pn:name="LeftShift.v"/>
+      <outfile xil_pn:name="LessThanZero.v"/>
+      <outfile xil_pn:name="Multiplexer.v"/>
+      <outfile xil_pn:name="MuxSevenToOne.v"/>
+      <outfile xil_pn:name="MuxSixToOne.v"/>
+      <outfile xil_pn:name="MuxThreeTOOneThirtyTwoBit.v"/>
+      <outfile xil_pn:name="MuxThreeToOneFiveBit.v"/>
+      <outfile xil_pn:name="MuxTwoToOne.v"/>
+      <outfile xil_pn:name="ProgramCounter.v"/>
+      <outfile xil_pn:name="RISC_KGP.v"/>
+      <outfile xil_pn:name="RISC_KGP_tb.v"/>
+      <outfile xil_pn:name="Register.v"/>
+      <outfile xil_pn:name="RegisterFile.v"/>
+      <outfile xil_pn:name="RightShift.v"/>
+      <outfile xil_pn:name="RightShiftArithmetic.v"/>
+      <outfile xil_pn:name="SignExtend17To32.v"/>
+      <outfile xil_pn:name="TwosComp.v"/>
+      <outfile xil_pn:name="WidthExtend5to32.v"/>
+      <outfile xil_pn:name="XOR.v"/>
+      <outfile xil_pn:name="datamemory.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393224" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="8623870158802986590" xil_pn:start_ts="1636393224">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393224" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="4014567511108955516" xil_pn:start_ts="1636393224">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393224" xil_pn:in_ck="2059746773674197068" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5822906346801872403" xil_pn:start_ts="1636393224">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/myBram.ngc"/>
+      <outfile xil_pn:name="ipcore_dir/myBram.v"/>
+      <outfile xil_pn:name="ipcore_dir/myBrom.ngc"/>
+      <outfile xil_pn:name="ipcore_dir/myBrom.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393224" xil_pn:in_ck="4069221353517183831" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1636393224">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ALU.v"/>
+      <outfile xil_pn:name="ALUControl.v"/>
+      <outfile xil_pn:name="AND.v"/>
+      <outfile xil_pn:name="Adder.v"/>
+      <outfile xil_pn:name="AluState.v"/>
+      <outfile xil_pn:name="BarrelShifter.v"/>
+      <outfile xil_pn:name="Branching.v"/>
+      <outfile xil_pn:name="Control.v"/>
+      <outfile xil_pn:name="EqualToZero.v"/>
+      <outfile xil_pn:name="FullAdder.v"/>
+      <outfile xil_pn:name="InstructionMemory.v"/>
+      <outfile xil_pn:name="LeftShift.v"/>
+      <outfile xil_pn:name="LessThanZero.v"/>
+      <outfile xil_pn:name="Multiplexer.v"/>
+      <outfile xil_pn:name="MuxSevenToOne.v"/>
+      <outfile xil_pn:name="MuxSixToOne.v"/>
+      <outfile xil_pn:name="MuxThreeTOOneThirtyTwoBit.v"/>
+      <outfile xil_pn:name="MuxThreeToOneFiveBit.v"/>
+      <outfile xil_pn:name="MuxTwoToOne.v"/>
+      <outfile xil_pn:name="ProgramCounter.v"/>
+      <outfile xil_pn:name="RISC_KGP.v"/>
+      <outfile xil_pn:name="RISC_KGP_tb.v"/>
+      <outfile xil_pn:name="Register.v"/>
+      <outfile xil_pn:name="RegisterFile.v"/>
+      <outfile xil_pn:name="RightShift.v"/>
+      <outfile xil_pn:name="RightShiftArithmetic.v"/>
+      <outfile xil_pn:name="SignExtend17To32.v"/>
+      <outfile xil_pn:name="TwosComp.v"/>
+      <outfile xil_pn:name="WidthExtend5to32.v"/>
+      <outfile xil_pn:name="XOR.v"/>
+      <outfile xil_pn:name="datamemory.v"/>
+      <outfile xil_pn:name="ipcore_dir/myBram.v"/>
+      <outfile xil_pn:name="ipcore_dir/myBrom.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393229" xil_pn:in_ck="4069221353517183831" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7299276241123697333" xil_pn:start_ts="1636393224">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="RISC_KGP_tb_beh.prj"/>
+      <outfile xil_pn:name="RISC_KGP_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393229" xil_pn:in_ck="3717729430518714166" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="5426136260584304974" xil_pn:start_ts="1636393229">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="RISC_KGP_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393054" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1636393054">
+      <status xil_pn:value="SuccessfullyRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393054" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-4315228988115079001" xil_pn:start_ts="1636393054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393054" xil_pn:in_ck="2059746773674197068" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-5822906346801872403" xil_pn:start_ts="1636393054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ipcore_dir/myBram.ngc"/>
+      <outfile xil_pn:name="ipcore_dir/myBram.v"/>
+      <outfile xil_pn:name="ipcore_dir/myBrom.ngc"/>
+      <outfile xil_pn:name="ipcore_dir/myBrom.v"/>
+    </transform>
+    <transform xil_pn:name="TRAN_SubProjectAbstractToPreProxy">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393054" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="7039532308746927817" xil_pn:start_ts="1636393054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393054" xil_pn:in_ck="734857847597907402" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="3206529612922900429" xil_pn:start_ts="1636393054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393054" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-519165196034042761" xil_pn:start_ts="1636393054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1636393071" xil_pn:in_ck="7771962088340424076" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-6329079234969974326" xil_pn:start_ts="1636393054">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="risc_kgp.lso"/>
+      <outfile xil_pn:name="risc_kgp.ngc"/>
+      <outfile xil_pn:name="risc_kgp.ngr"/>
+      <outfile xil_pn:name="risc_kgp.prj"/>
+      <outfile xil_pn:name="risc_kgp.stx"/>
+      <outfile xil_pn:name="risc_kgp.syr"/>
+      <outfile xil_pn:name="risc_kgp.xst"/>
+      <outfile xil_pn:name="risc_kgp_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+  </transforms>
+
+</generated_project>

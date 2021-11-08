@@ -12,7 +12,7 @@ Abhinandan De (19CS10069)
 module ProgramCounter(
         input[31:0] in,
         input clk,
-        output[31:0] out
+        output reg [31:0] out
     );
 
     always @(posedge clk) begin

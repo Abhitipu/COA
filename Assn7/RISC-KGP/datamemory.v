@@ -27,7 +27,4 @@ module datamemory(
   douta
 );
 
-
-
-
 endmodule

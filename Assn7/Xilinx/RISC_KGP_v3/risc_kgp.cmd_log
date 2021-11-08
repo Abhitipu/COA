@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Abhinandan/Desktop/Xilinx_files/RISC_KGP_v3/risc_kgp.xst" -ofn "C:/Users/Abhinandan/Desktop/Xilinx_files/RISC_KGP_v3/risc_kgp.syr" 
