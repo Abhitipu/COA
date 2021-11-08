@@ -65,6 +65,8 @@ module BarrelShifter_tb;
 		feedinbit = 0;
 		
 		#50;
+
+		$finish;
 	end
       
 endmodule

@@ -86,6 +86,8 @@ module RegisterFile_tb;
 		reset = 1'b1;
 		
 		#10;
+
+        $finish;
 		
 	end
       

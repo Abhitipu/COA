@@ -64,7 +64,8 @@ module Register_tb;
         reset = 1;
         writeToReg = 5;
         #10;
-        // $finish
+        
+        $finish;
 	end
       
 endmodule

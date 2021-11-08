@@ -50,6 +50,8 @@ module RightShiftArithmetic_tb;
 		B = 7;
 		#50;
 
+		$finish;
+
 	end
       
 endmodule

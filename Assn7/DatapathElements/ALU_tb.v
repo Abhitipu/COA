@@ -115,6 +115,8 @@ module ALU_tb;
 		#5;
 		Sel = 6;
 		#5;
+
+		$finish;
 		
 	end
       

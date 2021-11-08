@@ -124,6 +124,7 @@ module Branching_tb;
 		#10
 		fcode = 6;
 
+		$finish;
 	end
       
 endmodule

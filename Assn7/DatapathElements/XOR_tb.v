@@ -50,6 +50,8 @@ module XOR_tb;
 		A = 1e6 + 245;
 		B = 145457;
 		#50;
+
+		$finish;
 	end
       
 endmodule
