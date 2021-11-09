@@ -25,16 +25,17 @@ TODO ALU RESET line
 
 module risc_kgp(input clk,
 					 input clka,
+					 input clkb,
                 input reset);
 
         wire[31:0] next_pc, curr_pc;
         ProgramCounter pc(.in(next_pc), 
-                        .clk(clka),
+                        .clk(clk),
 								.reset(reset),
                         .out(curr_pc));
 
         wire[31:0] instr;
-        InstructionMemory im(.clka(clk), 
+        InstructionMemory im(.clka(clkb), 
                         .ena(1'b1), 
                         .addra(curr_pc), 
                         .douta(instr));
@@ -101,7 +102,7 @@ module risc_kgp(input clk,
         ALU alu(.A(read_data1), 
                 .B(AluInput2), 
                 .Sel(myAryanWire), 
-                .clk(clk), 
+                .clk(clkb), 
                 .result(ALUResult), 
                 .sign(sign), 
                 .carry(carry), 
@@ -113,7 +114,7 @@ module risc_kgp(input clk,
         branching branchmodule(.pc(curr_pc), 
                                 .read_data1(read_data1), 
                                 .label(extendedOutput2), 
-                                .fcode(instr[11:7]), 
+                                .fcode(instr[21:17]), 
                                 .branch(Branch[0]), 
                                 .branchSrc(Branch[1]), 
                                 .sign(sign), 
@@ -124,7 +125,7 @@ module risc_kgp(input clk,
 
         wire[31:0] read_data_mem;
 
-        datamemory dm(.clka(clk), 
+        datamemory dm(.clka(~clkb), 
                         .ena(MemRead), // sahi hai..
                         .wea({4{MemWrite}}),           
                         .addra(ALUResult), 

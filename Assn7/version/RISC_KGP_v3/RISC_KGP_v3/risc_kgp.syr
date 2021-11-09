@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: risc_kgp.prj
 
@@ -566,10 +566,10 @@ Primitive and Black Box Usage:
 #      LUT2                        : 10
 #      LUT3                        : 115
 #      LUT4                        : 26
-#      LUT5                        : 187
+#      LUT5                        : 186
 #      LUT6                        : 1056
 #      MUXCY                       : 18
-#      MUXF7                       : 81
+#      MUXF7                       : 82
 #      VCC                         : 3
 # FlipFlops/Latches                : 1057
 #      FD_1                        : 1
@@ -577,8 +577,8 @@ Primitive and Black Box Usage:
 #      FDCE                        : 1024
 # RAMS                             : 2
 #      RAMB18E1                    : 2
-# Clock Buffers                    : 2
-#      BUFGP                       : 2
+# Clock Buffers                    : 3
+#      BUFGP                       : 3
 # IO Buffers                       : 1
 #      IBUF                        : 1
 
@@ -590,24 +590,24 @@ Selected Device : 7a100tcsg324-1
 
 Slice Logic Utilization: 
  Number of Slice Registers:            1057  out of  126800     0%  
- Number of Slice LUTs:                 1394  out of  63400     2%  
-    Number used as Logic:              1394  out of  63400     2%  
+ Number of Slice LUTs:                 1393  out of  63400     2%  
+    Number used as Logic:              1393  out of  63400     2%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   2371
-   Number with an unused Flip Flop:    1314  out of   2371    55%  
-   Number with an unused LUT:           977  out of   2371    41%  
-   Number of fully used LUT-FF pairs:    80  out of   2371     3%  
+ Number of LUT Flip Flop pairs used:   2370
+   Number with an unused Flip Flop:    1313  out of   2370    55%  
+   Number with an unused LUT:           977  out of   2370    41%  
+   Number of fully used LUT-FF pairs:    80  out of   2370     3%  
    Number of unique control sets:        34
 
 IO Utilization: 
- Number of IOs:                           3
- Number of bonded IOBs:                   3  out of    210     1%  
+ Number of IOs:                           4
+ Number of bonded IOBs:                   4  out of    210     1%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                1  out of    135     0%  
     Number using Block RAM only:          1
- Number of BUFG/BUFGCTRLs:                2  out of     32     6%  
+ Number of BUFG/BUFGCTRLs:                3  out of     32     9%  
 
 ---------------------------
 Partition Resource Summary:
@@ -630,8 +630,9 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1027  |
-clka                               | BUFGP                  | 32    |
+clk                                | BUFGP                  | 1026  |
+clkb                               | BUFGP                  | 32    |
+clka                               | BUFGP                  | 1     |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -654,7 +655,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 16.476ns (frequency: 60.696MHz)
-  Total number of paths / destination ports: 22604526 / 2095
+  Total number of paths / destination ports: 22402490 / 2049
 -------------------------------------------------------------------------
 Delay:               8.238ns (Levels of Logic = 9)
   Source:            im/brom1/U0/xst_blk_mem_generator/gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v6_init.ram/WITH_BMM_INFO.SP.WIDE_PRIM18.ram (RAM)
@@ -682,15 +683,15 @@ Delay:               8.238ns (Levels of Logic = 9)
                                        (45.2% logic, 54.8% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clka'
+Timing constraint: Default period analysis for Clock 'clkb'
   Clock period: 11.752ns (frequency: 85.092MHz)
   Total number of paths / destination ports: 4994 / 32
 -------------------------------------------------------------------------
 Delay:               11.752ns (Levels of Logic = 16)
   Source:            pc/out_1 (FF)
   Destination:       pc/out_31 (FF)
-  Source Clock:      clka rising
-  Destination Clock: clka rising
+  Source Clock:      clkb rising
+  Destination Clock: clkb rising
 
   Data Path: pc/out_1 to pc/out_31
                                 Gate     Net
@@ -738,13 +739,13 @@ Offset:              1.173ns (Levels of Logic = 1)
                                        (42.2% logic, 57.8% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'clka'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clkb'
   Total number of paths / destination ports: 32 / 32
 -------------------------------------------------------------------------
 Offset:              1.173ns (Levels of Logic = 1)
   Source:            reset (PAD)
   Destination:       pc/out_31 (FF)
-  Destination Clock: clka rising
+  Destination Clock: clkb rising
 
   Data Path: reset to pc/out_31
                                 Gate     Net
@@ -767,7 +768,8 @@ Clock to Setup on destination clock clk
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
 clk            |   12.718|         |    8.238|         |
-clka           |    6.733|         |         |         |
+clka           |    4.606|         |         |         |
+clkb           |    6.733|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clka
@@ -775,19 +777,27 @@ Clock to Setup on destination clock clka
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
+clk            |   11.736|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clkb
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
 clk            |   16.098|    2.307|         |         |
-clka           |   11.752|         |         |         |
+clkb           |   11.752|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 17.00 secs
-Total CPU time to Xst completion: 16.78 secs
+Total CPU time to Xst completion: 16.86 secs
  
 --> 
 
-Total memory usage is 4620620 kilobytes
+Total memory usage is 4620640 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    7 (   0 filtered)

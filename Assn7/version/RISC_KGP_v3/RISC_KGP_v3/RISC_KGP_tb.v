@@ -27,28 +27,33 @@ module RISC_KGP_tb;
 	// Inputs
 	reg clk;
 	reg clka;
+	reg clkb;
 	reg reset;
 
 	// Instantiate the Unit Under Test (UUT)
 	risc_kgp uut (
 		.clk(clk),
 		.clka(clka),
+		.clkb(clkb),
 		.reset(reset)
 	);
+	
 	always begin 
-	#9; clk = ~clk;
-	#1; clka = ~clka; 
+	#14; clk = ~clk;
+	clka = ~clka; 
+	#1; clkb = ~clkb;
 	end
+	
 	initial begin
 		// Initialize Inputs
-		clk = 0;clka = 0;
+		clk = 0;clka = 0;clkb = 0;
 		
 		reset = 1;
 
 		// Wait 10 ns for global reset to finish
 		#10;
 		reset = 0;
-		#200;
+		#100000;
 		$finish;
 	end
       

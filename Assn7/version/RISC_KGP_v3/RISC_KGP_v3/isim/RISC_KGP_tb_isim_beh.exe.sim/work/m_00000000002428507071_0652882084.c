@@ -21,25 +21,24 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static unsigned int ng0[] = {0U, 0U};
+static unsigned int ng0[] = {4294967295U, 0U};
+static unsigned int ng1[] = {0U, 0U};
+static unsigned int ng2[] = {1U, 0U};
 
 
 
-static void Gate_20_0(char *t0)
+static void Gate_19_0(char *t0)
 {
-    char t5[256];
     char *t1;
     char *t2;
     char *t3;
     char *t4;
+    char *t5;
     char *t6;
     char *t7;
     char *t8;
     char *t9;
     char *t10;
-    char *t11;
-    char *t12;
-    char *t13;
 
 LAB0:    t1 = (t0 + 3328U);
     t2 = *((char **)t1);
@@ -48,22 +47,19 @@ LAB0:    t1 = (t0 + 3328U);
 
 LAB3:    goto *t2;
 
-LAB2:    t2 = (t0 + 2248);
-    t3 = (t2 + 56U);
+LAB2:    t2 = ((char*)((ng0)));
+    t3 = (t0 + 1048U);
     t4 = *((char **)t3);
-    xsi_vlogtype_bit_extend(t5, 32, t4);
-    t6 = (t0 + 1048U);
-    t7 = *((char **)t6);
-    t6 = (t0 + 4240);
-    t8 = (t6 + 56U);
-    t9 = *((char **)t8);
-    t10 = (t9 + 56U);
-    t11 = *((char **)t10);
-    xsi_vlog_xorArrayGate(t11, 32, 2, t5, t7);
-    t12 = (t0 + 4240);
-    xsi_driver_vfirst_trans(t12, 0, 31);
-    t13 = (t0 + 4144);
-    *((int *)t13) = 1;
+    t3 = (t0 + 4488);
+    t5 = (t3 + 56U);
+    t6 = *((char **)t5);
+    t7 = (t6 + 56U);
+    t8 = *((char **)t7);
+    xsi_vlog_xorArrayGate(t8, 32, 2, t2, t4);
+    t9 = (t0 + 4488);
+    xsi_driver_vfirst_trans(t9, 0, 31);
+    t10 = (t0 + 4392);
+    *((int *)t10) = 1;
 
 LAB1:    return;
 }
@@ -88,14 +84,14 @@ LAB3:    goto *t2;
 
 LAB2:    t2 = (t0 + 1688U);
     t3 = *((char **)t2);
-    t2 = (t0 + 4304);
+    t2 = (t0 + 4552);
     t4 = (t2 + 56U);
     t5 = *((char **)t4);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
     memcpy(t7, t3, 8);
     xsi_driver_vfirst_trans(t2, 0, 31);
-    t8 = (t0 + 4160);
+    t8 = (t0 + 4408);
     *((int *)t8) = 1;
 
 LAB1:    return;
@@ -118,8 +114,8 @@ LAB0:    t1 = (t0 + 3824U);
 
 LAB3:    goto *t2;
 
-LAB2:    t2 = ((char*)((ng0)));
-    t3 = (t0 + 4368);
+LAB2:    t2 = ((char*)((ng1)));
+    t3 = (t0 + 4616);
     t4 = (t3 + 56U);
     t5 = *((char **)t4);
     t6 = (t5 + 56U);
@@ -130,10 +126,59 @@ LAB2:    t2 = ((char*)((ng0)));
 LAB1:    return;
 }
 
-
-extern void work_m_00000000001318437351_0652882084_init()
+static void implSig3_execute(char *t0)
 {
-	static char *pe[] = {(void *)Gate_20_0,(void *)implSig1_execute,(void *)implSig2_execute};
-	xsi_register_didat("work_m_00000000001318437351_0652882084", "isim/RISC_KGP_tb_isim_beh.exe.sim/work/m_00000000001318437351_0652882084.didat");
+    char *t1;
+    char *t2;
+    char *t3;
+    char *t4;
+    char *t5;
+    char *t6;
+    char *t7;
+    unsigned int t8;
+    unsigned int t9;
+    char *t10;
+    unsigned int t11;
+    unsigned int t12;
+    char *t13;
+    unsigned int t14;
+    unsigned int t15;
+
+LAB0:    t1 = (t0 + 4072U);
+    t2 = *((char **)t1);
+    if (t2 == 0)
+        goto LAB2;
+
+LAB3:    goto *t2;
+
+LAB2:    t2 = ((char*)((ng2)));
+    t3 = (t0 + 4680);
+    t4 = (t3 + 56U);
+    t5 = *((char **)t4);
+    t6 = (t5 + 56U);
+    t7 = *((char **)t6);
+    memset(t7, 0, 8);
+    t8 = 1U;
+    t9 = t8;
+    t10 = (t2 + 4);
+    t11 = *((unsigned int *)t2);
+    t8 = (t8 & t11);
+    t12 = *((unsigned int *)t10);
+    t9 = (t9 & t12);
+    t13 = (t7 + 4);
+    t14 = *((unsigned int *)t7);
+    *((unsigned int *)t7) = (t14 | t8);
+    t15 = *((unsigned int *)t13);
+    *((unsigned int *)t13) = (t15 | t9);
+    xsi_driver_vfirst_trans(t3, 0, 0);
+
+LAB1:    return;
+}
+
+
+extern void work_m_00000000002428507071_0652882084_init()
+{
+	static char *pe[] = {(void *)Gate_19_0,(void *)implSig1_execute,(void *)implSig2_execute,(void *)implSig3_execute};
+	xsi_register_didat("work_m_00000000002428507071_0652882084", "isim/RISC_KGP_tb_isim_beh.exe.sim/work/m_00000000002428507071_0652882084.didat");
 	xsi_register_executes(pe);
 }

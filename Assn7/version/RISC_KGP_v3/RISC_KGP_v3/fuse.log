@@ -69,8 +69,8 @@ Compiling module risc_kgp
 Compiling module RISC_KGP_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 15 sub-compilation(s) to finish...
+Waiting for 29 sub-compilation(s) to finish...
 Compiled 44 Verilog Units
 Built simulation executable C:/Users/Abhinandan/Desktop/Kgp/Class/3rd yr/5th sem/COA Lab/Github/COA/Assn7/version/RISC_KGP_v3/RISC_KGP_v3/RISC_KGP_tb_isim_beh.exe
-Fuse Memory Usage: 34588 KB
-Fuse CPU Usage: 874 ms
+Fuse Memory Usage: 35524 KB
+Fuse CPU Usage: 812 ms
