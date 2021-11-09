@@ -1,0 +1,29 @@
+Command line:
+   RISC_KGP_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  58233
+
+Tue Nov 09 17:14:09 2021
+
+
+ Elaboration Time: 0.109375 sec
+
+ Current Memory Usage: 5179.4 Meg
+
+ Total Signals          : 5172
+ Total Nets             : 5627
+ Total Signal Drivers   : 1501
+ Total Blocks           : 1191
+ Total Primitive Blocks : 1167
+ Total Processes        : 1570
+ Total Traceable Variables  : 736
+ Total Scalar Nets and Variables : 63202
+Total Line Count : 2469
+
+ Total Simulation Time: 0.140625 sec
+
+ Current Memory Usage: 4707.55 Meg
+
+Tue Nov 09 17:16:23 2021
+
