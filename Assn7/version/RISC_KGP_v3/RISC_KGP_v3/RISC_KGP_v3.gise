@@ -107,7 +107,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1636464186" xil_pn:in_ck="2059746773674197068" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5822906346801872403" xil_pn:start_ts="1636464185">
+    <transform xil_pn:end_ts="1636521663" xil_pn:in_ck="2059746773674197068" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-5822906346801872403" xil_pn:start_ts="1636521662">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/myBram.ngc"/>
@@ -115,46 +115,31 @@
       <outfile xil_pn:name="ipcore_dir/myBrom.ngc"/>
       <outfile xil_pn:name="ipcore_dir/myBrom.v"/>
     </transform>
-    <transform xil_pn:end_ts="1636467398" xil_pn:in_ck="4069221353517183831" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1636467398">
+    <transform xil_pn:end_ts="1636521663" xil_pn:in_ck="-3512326716946825196" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1636521663">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALU.v"/>
       <outfile xil_pn:name="ALUControl.v"/>
-      <outfile xil_pn:name="AND.v"/>
-      <outfile xil_pn:name="Adder.v"/>
-      <outfile xil_pn:name="AluState.v"/>
-      <outfile xil_pn:name="BarrelShifter.v"/>
       <outfile xil_pn:name="Branching.v"/>
       <outfile xil_pn:name="Control.v"/>
-      <outfile xil_pn:name="EqualToZero.v"/>
-      <outfile xil_pn:name="FullAdder.v"/>
       <outfile xil_pn:name="InstructionMemory.v"/>
-      <outfile xil_pn:name="LeftShift.v"/>
-      <outfile xil_pn:name="LessThanZero.v"/>
-      <outfile xil_pn:name="Multiplexer.v"/>
-      <outfile xil_pn:name="MuxSevenToOne.v"/>
-      <outfile xil_pn:name="MuxSixToOne.v"/>
       <outfile xil_pn:name="MuxThreeTOOneThirtyTwoBit.v"/>
       <outfile xil_pn:name="MuxThreeToOneFiveBit.v"/>
-      <outfile xil_pn:name="MuxTwoToOne.v"/>
       <outfile xil_pn:name="ProgramCounter.v"/>
       <outfile xil_pn:name="RISC_KGP.v"/>
       <outfile xil_pn:name="RISC_KGP_tb.v"/>
-      <outfile xil_pn:name="Register.v"/>
       <outfile xil_pn:name="RegisterFile.v"/>
-      <outfile xil_pn:name="RightShift.v"/>
-      <outfile xil_pn:name="RightShiftArithmetic.v"/>
       <outfile xil_pn:name="SignExtend17To32.v"/>
-      <outfile xil_pn:name="TwosComp.v"/>
       <outfile xil_pn:name="WidthExtend5to32.v"/>
-      <outfile xil_pn:name="XOR.v"/>
       <outfile xil_pn:name="datamemory.v"/>
       <outfile xil_pn:name="ipcore_dir/myBram.v"/>
       <outfile xil_pn:name="ipcore_dir/myBrom.v"/>
     </transform>
-    <transform xil_pn:end_ts="1636467402" xil_pn:in_ck="4069221353517183831" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7299276241123697333" xil_pn:start_ts="1636467398">
+    <transform xil_pn:end_ts="1636521667" xil_pn:in_ck="4069221353517183831" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7299276241123697333" xil_pn:start_ts="1636521663">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="RISC_KGP_tb_beh.prj"/>
       <outfile xil_pn:name="RISC_KGP_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
@@ -162,9 +147,11 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1636467403" xil_pn:in_ck="3717729430518714166" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="5426136260584304974" xil_pn:start_ts="1636467402">
+    <transform xil_pn:end_ts="1636521667" xil_pn:in_ck="3717729430518714166" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="5426136260584304974" xil_pn:start_ts="1636521667">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="RISC_KGP_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
@@ -180,6 +167,10 @@
     <transform xil_pn:end_ts="1636466809" xil_pn:in_ck="2059746773674197068" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-5822906346801872403" xil_pn:start_ts="1636466809">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ipcore_dir/myBram.ngc"/>
       <outfile xil_pn:name="ipcore_dir/myBram.v"/>
       <outfile xil_pn:name="ipcore_dir/myBrom.ngc"/>
@@ -196,16 +187,19 @@
     <transform xil_pn:end_ts="1636393054" xil_pn:in_ck="734857847597907402" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="3206529612922900429" xil_pn:start_ts="1636393054">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
     <transform xil_pn:end_ts="1636393054" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-519165196034042761" xil_pn:start_ts="1636393054">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
     <transform xil_pn:end_ts="1636466828" xil_pn:in_ck="7771962088340424076" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-6329079234969974326" xil_pn:start_ts="1636466809">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputRemoved"/>
@@ -225,6 +219,7 @@
     <transform xil_pn:end_ts="1636452294" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="4784894139498444788" xil_pn:start_ts="1636452293">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
     <transform xil_pn:end_ts="1636459644" xil_pn:in_ck="4147911169003596640" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8786403361849619038" xil_pn:start_ts="1636459634">
       <status xil_pn:value="SuccessfullyRun"/>

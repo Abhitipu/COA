@@ -1,9 +1,9 @@
 # Output products list for <myBram>
+_xmsgs\pn_parser.xmsgs
 myBram.asy
 myBram.gise
 myBram.mif
 myBram.ngc
-myBram.sym
 myBram.v
 myBram.veo
 myBram.xco

@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Mon Nov 08 17:21:15 2021
+# Date: Wed Nov 10 05:11:08 2021
 #
 ##############################################################
 #
@@ -46,7 +46,7 @@ CSET axi_id_width=4
 CSET axi_slave_type=Memory_Slave
 CSET axi_type=AXI4_Full
 CSET byte_size=8
-CSET coe_file="C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\RISC-KGP\initialization.coe"
+CSET coe_file=.\mem_init.coe
 CSET collision_warnings=ALL
 CSET component_name=myBram
 CSET disable_collision_warnings=false
@@ -97,7 +97,7 @@ CSET use_regcea_pin=false
 CSET use_regceb_pin=false
 CSET use_rsta_pin=false
 CSET use_rstb_pin=false
-CSET write_depth_a=32
+CSET write_depth_a=16
 CSET write_width_a=32
 CSET write_width_b=32
 # END Parameters
@@ -105,4 +105,4 @@ CSET write_width_b=32
 MISC pkg_timestamp=2012-11-19T16:22:25Z
 # END Extra information
 GENERATE
-# CRC: a976e8fb
+# CRC: f8588f39

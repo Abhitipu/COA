@@ -14,18 +14,6 @@
 <msg type="info" file="ip" num="0" delta="new" ><arg fmt="%d" index="1">0</arg>: (<arg fmt="%d" index="2">0</arg>,<arg fmt="%d" index="3">0</arg>) 	: <arg fmt="%d" index="4">36</arg>x<arg fmt="%d" index="5">512</arg> 	u:<arg fmt="%d" index="6">32</arg>
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="746" delta="old" >"C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\blk_mem_gen_v7_3\blk_mem_gen_prim_width.vhd" Line 978: Range is empty (null range)
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="220" delta="old" >"C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\blk_mem_gen_v7_3\blk_mem_gen_prim_width.vhd" Line 978: Assignment ignored
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="746" delta="old" >"C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\blk_mem_gen_v7_3\blk_mem_gen_prim_width.vhd" Line 979: Range is empty (null range)
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="220" delta="old" >"C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\blk_mem_gen_v7_3\blk_mem_gen_prim_width.vhd" Line 979: Assignment ignored
-</msg>
-
 <msg type="info" file="ip" num="0" delta="new" >Reading MIF file at <arg fmt="%s" index="1">C:/Users/Abhinandan/Desktop/Kgp/Class/3rd yr/5th sem/COA Lab/Github/COA/Assn7/version/RISC_KGP_v3/RISC_KGP_v3/ipcore_dir/tmp/_cg/myBrom.mif</arg>
 </msg>
 
@@ -68,70 +56,70 @@
 <msg type="warning" file="HDLCompiler" num="634" delta="old" >"C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\blk_mem_gen_v7_3\blk_mem_gen_prim_width.vhd" Line 434: Net &lt;<arg fmt="%s" index="1">dinb_pad[35]</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">doutb</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">doutb</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">rdaddrecc</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">rdaddrecc</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_bid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_bid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_bresp</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_bresp</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rdata</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rdata</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rresp</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rresp</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rdaddrecc</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rdaddrecc</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">sbiterr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">sbiterr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">dbiterr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">dbiterr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_awready</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_awready</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_wready</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_wready</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_bvalid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_bvalid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_arready</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_arready</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rlast</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rlast</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rvalid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_rvalid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_sbiterr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_sbiterr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_dbiterr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\Abhinandan\Desktop\Kgp\Class\3rd yr\5th sem\COA Lab\Github\COA\Assn7\version\RISC_KGP_v3\RISC_KGP_v3\ipcore_dir\tmp\_cg\_dbg\myBrom.vhd</arg>&quot; line <arg fmt="%s" index="2">149</arg>: Output port &lt;<arg fmt="%s" index="3">s_axi_dbiterr</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ADDRA&lt;1:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ADDRA&lt;31:11&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ADDRA&lt;31:9&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ADDRB&lt;1:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ADDRB&lt;31:11&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">ADDRB&lt;31:9&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">S_AXI_AWID</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -242,10 +230,10 @@
 <msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">S_AXI_DBITERR</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">WEA</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">WEA</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">DINA</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">DINA</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">WEB</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -290,13 +278,13 @@
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">REGCEA</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">WEA&lt;3:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">WEA&lt;3:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">REGCEB</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">WEB&lt;3:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">WEB&lt;3:1&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">INJECTSBITERR</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
