@@ -5,3 +5,6 @@ Assn0
 # output and vcd files
 *.out
 *.vcd
+
+# Drawio files
+*.drawio

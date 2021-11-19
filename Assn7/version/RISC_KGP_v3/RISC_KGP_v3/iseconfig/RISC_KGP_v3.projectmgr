@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="RISC_KGP_v3" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Automatic `includes</ClosedNode>
+         <ClosedNode>/risc_kgp C:|Users|Abhinandan|Desktop|Kgp|Class|3rd yr|5th sem|COA Lab|Github|COA|Assn7|version|RISC_KGP_v3|RISC_KGP_v3|RISC_KGP.v/rf - RegisterFile</ClosedNode>
+         <ClosedNode>/risc_kgp C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP.v/alu - ALU</ClosedNode>
+         <ClosedNode>/risc_kgp C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP.v/branchmodule - branching</ClosedNode>
+         <ClosedNode>/risc_kgp C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP.v/dm - datamemory</ClosedNode>
+         <ClosedNode>/risc_kgp C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP.v/rf - RegisterFile</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>risc_kgp (C:/Users/Abhinandan/Desktop/Kgp/Class/3rd yr/5th sem/COA Lab/Github/COA/Assn7/version/RISC_KGP_v3/RISC_KGP_v3/RISC_KGP.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001cc000000020000000000000000000000000200000064ffffffff000000810000000300000002000001cc0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>risc_kgp (C:/Users/Abhinandan/Desktop/Kgp/Class/3rd yr/5th sem/COA Lab/Github/COA/Assn7/version/RISC_KGP_v3/RISC_KGP_v3/RISC_KGP.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Implement Design</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001fa000000010000000100000000000000000000000064ffffffff000000810000000000000001000001fa0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Implement Design</CurrentItem>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000003a2000000040101000100000000000000000000000064ffffffff0000008100000000000000040000020b0000000100000000000000d700000001000000000000006600000001000000000000005a0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Adder.v</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000001fa000000010001000100000000000000000000000064ffffffff000000810000000000000001000001fa0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Automatic `includes</ClosedNode>
+         <ClosedNode>/RISC_KGP_tb C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP_tb.v/uut - risc_kgp/alu - ALU/adder - rca32</ClosedNode>
+         <ClosedNode>/RISC_KGP_tb C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP_tb.v/uut - risc_kgp/alu - ALU/leftShift - LeftShift</ClosedNode>
+         <ClosedNode>/RISC_KGP_tb C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP_tb.v/uut - risc_kgp/alu - ALU/rightShift - RightShift</ClosedNode>
+         <ClosedNode>/RISC_KGP_tb C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP_tb.v/uut - risc_kgp/alu - ALU/rightShiftArithmetic - RightShiftArithmetic</ClosedNode>
+         <ClosedNode>/RISC_KGP_tb C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP_tb.v/uut - risc_kgp/alu - ALU/twosComp - TwosComp</ClosedNode>
+         <ClosedNode>/RISC_KGP_tb C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP_tb.v/uut - risc_kgp/branchmodule - branching</ClosedNode>
+         <ClosedNode>/RISC_KGP_tb C:|Users|Student|Desktop|19CS30007_COA_LAB|Assn7|RISC_KGP_v3|RISC_KGP_tb.v/uut - risc_kgp/rf - RegisterFile</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>RISC_KGP_tb (C:/Users/Abhinandan/Desktop/Kgp/Class/3rd yr/5th sem/COA Lab/Github/COA/Assn7/version/RISC_KGP_v3/RISC_KGP_v3/RISC_KGP_tb.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001e0000000020000000000000000000000000200000064ffffffff000000810000000300000002000001e00000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>RISC_KGP_tb (C:/Users/Abhinandan/Desktop/Kgp/Class/3rd yr/5th sem/COA Lab/Github/COA/Assn7/version/RISC_KGP_v3/RISC_KGP_v3/RISC_KGP_tb.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Design Utilities</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001fa000000010000000100000000000000000000000064ffffffff000000810000000000000001000001fa0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Design Utilities</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_XCO" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001fa000000010000000100000000000000000000000064ffffffff000000810000000000000001000001fa0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_XCO" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001fa000000010000000100000000000000000000000064ffffffff000000810000000000000001000001fa0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001f1000000010000000100000000000000000000000064ffffffff000000810000000000000001000001f10000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001fa000000010000000100000000000000000000000064ffffffff000000810000000000000001000001fa0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff000000000000000200000140000000a601000000050100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+</Project>
